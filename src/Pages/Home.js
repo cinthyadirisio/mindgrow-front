@@ -1,8 +1,12 @@
 import React from 'react'
-import Layout from '../Layout/WebsiteLayout'
 
-export default function Home() {
+
+function Home(props) {
   return (
-    <div>home</div>
+    <div>
+      {props.children}
+    </div>
   )
 }
+
+export default Home

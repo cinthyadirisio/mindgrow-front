@@ -1,13 +1,22 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import WebsiteLayout from "./Layout/WebsiteLayout";
-import Home from "./Pages/Home";
+
+import './styles/header.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Products from './pages/Products';
+import Home from './pages/Home';
+import WhyMindGrowPage from './pages/WhyMindGrowPage'
+import WebsiteLayout from './layout/WebsiteLayout'
+
 
 function App() {
   return (
     <BrowserRouter>
       <WebsiteLayout>
         <Routes>
-          <Route path="/" element={<Home />} />
+
+          <Route path='/' element={<Home />} />
+          <Route path='/products' element={<Products />} />
+          <Route path='/whymindgrow' element={<WhyMindGrowPage />} />
+
         </Routes>
       </WebsiteLayout>
     </BrowserRouter>
