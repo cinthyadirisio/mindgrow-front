@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../Components/Footer'
 import Header from '../components/header/Header'
 import '../styles/header.css'
 
@@ -9,9 +10,10 @@ function WebsiteLayout() {
         <main id='main' className='main'>
 
         </main>
-        {/* <Footer/> */}
+        <Footer/>
     </>
   )
 }
 
 export default WebsiteLayout
+

@@ -1,0 +1,83 @@
+*{
+    box-sizing: border-box;
+}
+.Footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #77628C;
+    width: 100%;
+    min-height: 10vh;
+    padding: 1rem;
+    gap: 1.5rem;
+}
+
+.Footer-container-template{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.Footer-container-products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    gap: 1rem;
+    padding: 1rem;
+    border-right: solid 1px black;
+}
+
+.Footer-container-products span {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.Footer-container-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.Footer-container-socials {
+    display: flex;
+    gap: 2rem;
+}
+
+a img {
+    width: 2rem;
+}
+
+.Footer-link {
+    font-weight: 500;
+    text-decoration: none;
+    color: white
+}
+.Footer-container p{
+    font-weight: 600;
+    color: #fff;
+}
+
+.scroll {
+    background-image: url("/public/assets/icons/up-arrow.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #77628C;
+    background-position: center;
+    position: absolute;
+    top: 20rem;
+    right: 1rem;
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+}

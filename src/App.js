@@ -1,3 +1,4 @@
+
 import './styles/header.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Products from './pages/Products';
@@ -11,9 +12,11 @@ function App() {
     <BrowserRouter>
       <WebsiteLayout>
         <Routes>
+
           <Route path='/' element={<Home />} />
           <Route path='/products' element={<Products />} />
           <Route path='/whymindgrow' element={<WhyMindGrowPage />} />
+
         </Routes>
       </WebsiteLayout>
     </BrowserRouter>
