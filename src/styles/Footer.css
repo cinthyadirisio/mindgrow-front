@@ -68,13 +68,12 @@ a img {
 }
 
 .scroll {
-    background-image: url("/public/assets/icons/up-arrow.png");
+    background-image: url('../../public/assets/icons/up-arrow.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-color: #77628C;
     background-position: center;
     position: absolute;
-    top: 20rem;
     right: 1rem;
     border: none;
     width: 3rem;

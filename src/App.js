@@ -2,10 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './Styles/header.css';
-import Products from './Pages/Products';
-import Home from './Pages/Home';
-import WhyMindGrowPage from './Pages/WhyMindGrowPage'
-import WebsiteLayout from './Layout/WebsiteLayout'
+import Products from './pages/Products';
+import Home from './pages/Home';
+import WhyMindGrowPage from './pages/WhyMindGrowPage'
+import NotFound from './pages/NotFound';
+import WebsiteLayout from './layout/WebsiteLayout'
+
 
 
 
@@ -18,6 +20,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/products' element={<Products />} />
           <Route path='/whymindgrow' element={<WhyMindGrowPage />} />
+          <Route path='/*' element={<NotFound />} />
 
         </Routes>
       </WebsiteLayout>
