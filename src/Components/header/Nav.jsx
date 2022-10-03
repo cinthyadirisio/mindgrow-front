@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/header.css'
+import '../../Styles/header.css'
 import { Link as LinkRouter } from "react-router-dom";
 
 function Nav() {

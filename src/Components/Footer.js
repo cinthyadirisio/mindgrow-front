@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link as LinkRouter } from 'react-router-dom'
-import '../styles/Footer.css'
+import '../Styles/Footer.css'
 
 export default function Footer() {
     const scroll = () => {

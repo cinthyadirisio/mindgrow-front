@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/header.css'
+import '../../Styles/header.css'
 import BurgerNav from './BurgerNav'
 import Logo from './Logo'
 import Nav from './Nav'
