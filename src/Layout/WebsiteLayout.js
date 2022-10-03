@@ -1,6 +1,6 @@
 import React from 'react'
-import Footer from '../Components/Footer'
-import Header from '../Components/header/Header'
+import Footer from '../components/Footer'
+import Header from '../components/header/Header'
 import '../Styles/header.css'
 
 function WebsiteLayout(props) {
