@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import WhyMindGrowPage from './pages/WhyMindGrowPage'
 import NotFound from './pages/NotFound';
 import WebsiteLayout from './layouts/WebsiteLayout'
+import SignIn from './pages/SignIn'
 
 
 
@@ -18,7 +19,9 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/products' element={<Products />} />
           <Route path='/whymindgrow' element={<WhyMindGrowPage />} />
+          <Route path='/signin' element={<SignIn />} />
           <Route path='/*' element={<NotFound />} />
+
 
         </Routes>
       </WebsiteLayout>
