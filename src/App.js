@@ -1,12 +1,13 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './styles/header.css';
-import Products from './pages/Products';
 import Home from './pages/Home';
 import WhyMindGrowPage from './pages/WhyMindGrowPage'
 import NotFound from './pages/NotFound';
 import WebsiteLayout from './layouts/WebsiteLayout'
 import SignIn from './pages/SignIn'
+import ProductsPage from './pages/ProductsPage';
+import DetailsPage from './pages/DetailsPage';
 
 
 
@@ -17,9 +18,10 @@ function App() {
         <Routes>
 
           <Route path='/' element={<Home />} />
-          <Route path='/products' element={<Products />} />
+          <Route path='/products' element={<ProductsPage />} />
           <Route path='/whymindgrow' element={<WhyMindGrowPage />} />
           <Route path='/signin' element={<SignIn />} />
+          <Route path='/products/:id' element={<DetailsPage />} />
           <Route path='/*' element={<NotFound />} />
 
 
