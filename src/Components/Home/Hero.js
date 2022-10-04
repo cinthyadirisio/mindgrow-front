@@ -25,8 +25,6 @@ export default function Hero() {
       </div>
       <div className='CarouselProducts'>
         <h2>Our products</h2>
-
-
       </div>
 
       <div className='DoctorRabbit'>
