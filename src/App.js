@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './styles/header.css';
@@ -6,7 +5,7 @@ import Products from './pages/Products';
 import Home from './pages/Home';
 import WhyMindGrowPage from './pages/WhyMindGrowPage'
 import NotFound from './pages/NotFound';
-import WebsiteLayout from './layout/WebsiteLayout'
+import WebsiteLayout from './layouts/WebsiteLayout'
 
 
 
