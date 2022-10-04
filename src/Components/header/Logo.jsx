@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../Styles/header.css'
+import '../../styles/header.css'
 
 function Logo() {
   return (

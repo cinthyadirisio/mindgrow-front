@@ -1,6 +1,6 @@
 import React from 'react'
 import CallToAction from './CallToAction'
-import '../../Styles/Home.css'
+import '../../styles/Home.css'
 
 export default function Hero() {
   return (

@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import './Styles/header.css';
+import './styles/header.css';
 import Products from './pages/Products';
 import Home from './pages/Home';
 import WhyMindGrowPage from './pages/WhyMindGrowPage'
