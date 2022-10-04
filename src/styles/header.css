@@ -19,7 +19,6 @@
 .burger-btn {
     background: none;
     border: none;
-    display: none;
     cursor: pointer;
 }
 
@@ -33,12 +32,9 @@
     border-radius: 15px;
     text-align: center;
 }
-.Dropdown-menu {
-    display: flex;
-    flex-direction: column;
-    height: auto;
+.burger-btn:hover{
+    background: none !important;
 }
-
 /* Logo - Title */
 .logo-title{
     display: flex;
@@ -58,10 +54,14 @@
 /* UI */
 .UI-div{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 3rem;
+    gap:1rem;
+    height: 10rem;
+    width: 10rem;
+    font-size: 20pt;
 }
 
 .UI-box{
@@ -71,13 +71,13 @@
     border: none;
     cursor: pointer;
     align-self: center;
-    margin-bottom: 5rem;
 }
 .UI-box svg{
-    fill: #F9F8EB;
+    fill: hsl(157, 30%, 58%);
     width: 5rem;
     height: 5rem;
-    border: 1px solid #F9F8EB;
+    background: #F9F8EB;
+    border: 1px solid hsl(157, 30%, 58%);
     padding: .1rem 1rem;
     margin: 0.5rem;
     border-radius: 15px;
@@ -107,21 +107,24 @@
     filter: drop-shadow(5px 7px hsl(157, 30%, 58%));
 }
 
-.navlink{
+.drawer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 5rem;
+    padding: 3rem;
+    text-decoration: none;
+}
+.drawer .navlink, .linkRouter{
+    display: block;
     text-decoration: none;
     font-size: 25pt;
     font-weight: 500;
-    color: #F9F8EB;
-    text-align: center;
-    padding: 1rem 2rem;
-    border-radius: 30pt;
-    border: 2px solid #5C8D89;
+    color: #5C8D89;
 }
-.navlink:hover{
-    border: 2px solid #F9F8EB;
+.drawer .navlink{
+    margin-bottom: 3rem;
 }
-
-
 /* Cart */
 .cart-button{
     width: 5rem;
@@ -149,10 +152,6 @@
     .header-container{
         height: auto;
     }
-    
-    .burger-btn {
-        display: block;
-    }
     .nav-user{
         display: none;
     }
@@ -173,11 +172,9 @@
         flex-direction: column;
         flex-wrap: wrap;
         gap: 1rem;
+        height: 20rem;
     }
-    .UI-div{
-        flex-direction: column;
-    }
-    .UI-box{
-        margin-bottom: 0;
+    .logo-title img{
+        height: 10rem;
     }
 }
