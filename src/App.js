@@ -6,10 +6,7 @@ import Home from './pages/Home';
 import WhyMindGrowPage from './pages/WhyMindGrowPage'
 import NotFound from './pages/NotFound';
 import WebsiteLayout from './layouts/WebsiteLayout'
-<<<<<<< HEAD
-=======
 import SignIn from './pages/SignIn'
->>>>>>> fe206c5737814e7a9d754bd39d264e7c4910d6f2
 
 
 
