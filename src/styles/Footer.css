@@ -1,6 +1,7 @@
 *{
     box-sizing: border-box;
 }
+
 .Footer-container {
     display: flex;
     flex-direction: column;

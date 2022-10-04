@@ -33,5 +33,6 @@ export default function Footer() {
         <p>©{today.getFullYear()} MindGrow</p>
         <button className='scroll' onClick={scroll}></button>
     </div>
+    
   )
 }

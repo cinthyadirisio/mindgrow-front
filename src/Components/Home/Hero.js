@@ -11,7 +11,6 @@ export default function Hero() {
           <div className='HeroImage-divisor' />
           <h2>Working for your health</h2>
         </div>
-
         <div className='calltoaction'>
           <div className='round-img'>
 
