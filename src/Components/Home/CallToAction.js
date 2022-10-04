@@ -8,7 +8,6 @@ export default function CallToAction(props) {
     let linkTo = props.linkTo
     let buttonAction = props.buttonAction
 
-
   return (
 
     <div>

@@ -8,7 +8,6 @@ import { Link as LinkRouter } from "react-router-dom";
 import Cart from './Cart'
 
 
-
 function Header() {
   return (
     <header className='header-container'>

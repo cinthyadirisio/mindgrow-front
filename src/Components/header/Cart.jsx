@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Cart() {
+    
     return (
         <button className='cart-button'>
             <svg xmlns="http://www.w3.org/2000/svg" className="bi bi-cart3" viewBox="0 0 16 16">
