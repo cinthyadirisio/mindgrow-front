@@ -1,6 +1,6 @@
 import React from 'react'
 import CallToAction from './CallToAction'
-import '../../Styles/Home.css'
+import '../../styles/Home.css'
 
 export default function Hero() {
   return (
@@ -25,8 +25,6 @@ export default function Hero() {
       </div>
       <div className='CarouselProducts'>
         <h2>Our products</h2>
-
-
       </div>
 
       <div className='DoctorRabbit'>

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../Styles/CallToAction.css'
+import '../../styles/CallToAction.css'
 import {Link as LinkRouter} from 'react-router-dom'
 
 
