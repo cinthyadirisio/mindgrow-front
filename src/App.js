@@ -6,7 +6,7 @@ import Products from './pages/Products';
 import Home from './pages/Home';
 import WhyMindGrowPage from './pages/WhyMindGrowPage'
 import NotFound from './pages/NotFound';
-import WebsiteLayout from './layout/WebsiteLayout'
+import WebsiteLayout from './layouts/WebsiteLayout'
 
 
 
