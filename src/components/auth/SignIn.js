@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { setUser } from '../../features/loggedSlice'
 import toast, { Toaster } from 'react-hot-toast';
 
-
 export default function SignIn() {
 
     const [signInUser] = useSignInMutation()
