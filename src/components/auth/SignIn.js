@@ -32,7 +32,7 @@ export default function SignIn() {
                 console.log(response)
                 dispatch(setUser(response.data.response.user))
                 //localStorage.setItem('token', response.data.response.token)
-                toast("Welcome" + "" + response.data.response.user.name, {
+                toast("Welcome " + response.data.response.user.name, {
                     icon: "😏",
                     style: {
                         borderRadius: ".5rem",
