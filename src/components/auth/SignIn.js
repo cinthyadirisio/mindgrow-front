@@ -16,7 +16,7 @@ export default function SignIn() {
 
     const SignInArray = [
         { item: "Email", type: "email", value: useRefEmail, id: "signIn1", min: 4, max: 100  },
-        { item: "Password", type: "text", value: useRefPassword, id: "signIn2", min: 3, max: 100 },
+        { item: "Password", type: "password", value: useRefPassword, id: "signIn2", min: 3, max: 100 },
     ]
     function submitInfo(text) {
         text.preventDefault();

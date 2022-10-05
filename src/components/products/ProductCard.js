@@ -7,7 +7,8 @@ export default function ProductCard(props) {
         <div key={props.id} className='card-p'>
             <img src={props.photo} alt="Product" />
             <div className='info'>
-                <p >{props.category}</p>
+                <p>{props.category}</p>
+                <p className='subcategory'>{props.subcategory}</p>
                 <LinkRouter to={`/products/${props.id}`} className='name' >{props.name}</LinkRouter>{/* onClick a details */}
                 <div className='price-button'>
                     <p>${props.price}</p>

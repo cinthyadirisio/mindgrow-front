@@ -14,8 +14,8 @@ export default function Footer() {
     <div className='Footer-container'>
         <div className='Footer-container-template'>
             <nav className='Footer-container-nav'>
-                <LinkRouter className='Footer-link' to='/'>Home</LinkRouter>
-                <LinkRouter className='Footer-link' to='/whyMindGrow?'>Why MindGrow?</LinkRouter>
+                <LinkRouter className='Footer-link-nav' to='/'>Home</LinkRouter>
+                <LinkRouter className='Footer-link-nav' to='/whyMindGrow?'>Why MindGrow?</LinkRouter>
             </nav>
             <nav className='Footer-container-info'>
                 <a href='tel:+54 1122 3344'>Phone: +54 1122 3344</a>
@@ -32,7 +32,7 @@ export default function Footer() {
         </div>
         <div className='Footer-container-devs'>
             <a href='https://github.com/emazou'>Estefania Mazo</a>
-            <a href=''>Franco Muñoz</a>
+            <a href='https://github.com/francoEmunoz'>Franco Muñoz</a>
             <a href='https://github.com/cinthyadirisio'>Cinthya Di Risio</a>
             <a href='https://github.com/HectorGarayBascur'>Hector Garay</a>
             <a href='https://github.com/NataliaTorres5'>Natalia Torres</a>
