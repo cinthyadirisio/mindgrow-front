@@ -5,7 +5,8 @@
 }
 
 .SignInPage{
-    height: 90vh;
+    width: 100%;
+    min-height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,9 +32,8 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
-    font-size: 15pt;
-    
-    
+    font-size: 14pt;
+
 }
 
 .signIn-input label {
@@ -47,7 +47,6 @@
     border: none;
     margin-bottom: 2.5rem;
     width: 90%;
-    
 }
 
 .signIn-img img{
@@ -68,15 +67,19 @@
 }
 
 .Form-user button{
-
+    cursor: pointer;
     background-color: #77628C;
     padding: 1rem 4rem 1rem 4rem;
     border-radius: 3rem;
     border: none;
-    font-size: 15pt;
+    font-size: 13pt;
     margin-bottom: 1.4rem;
+    font-weight: 600;
 }
-
+.Form-user button:hover {
+    background-color: #f9f8eb;
+    color: #77628c;
+  }
 .signin{
     border-radius: 40%;
 }

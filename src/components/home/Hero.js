@@ -1,8 +1,9 @@
 import React from 'react'
 import CallToAction from './CallToAction'
 import '../../styles/Home.css'
-
+import { useNavigate } from 'react-router-dom'
 export default function Hero() {
+  const navigate = useNavigate()
   return (
     <>
       <div className='Hero-Container'>
@@ -12,26 +13,14 @@ export default function Hero() {
           <h2>Working for your health</h2>
         </div>
         <div className='calltoaction'>
-          <div className='round-img'>
+          <div className='round-img' onClick={() => navigate("/products", { replace: true }) }>
 
             <img src="https://cdn.icon-icons.com/icons2/1875/PNG/512/shoppingcart_120371.png" alt="" />
 
           </div>
-          <CallToAction linkTo="#" buttonAction='Shop' />
+          <CallToAction linkTo="/products" buttonAction='Shop' />
         </div>
-
-        
       </div>
-      <div className='CarouselProducts'>
-        <h2>Our products</h2>
-      </div>
-
-      <div className='DoctorRabbit'>
-          <div className='Rabbit-Container'>
-            <img className='Rabbit' src="https://i.im.ge/2022/10/04/1VjDyG.doctor-rabbit.png" alt="" />
-          </div>
-          <input type="text" name="bot" value="" placeholder='How can I help you' />
-        </div>
     </>
   )
 }
