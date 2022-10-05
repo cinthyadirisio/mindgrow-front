@@ -10,32 +10,34 @@
     background-color: #77628C;
     width: 100%;
     min-height: 10vh;
-    padding: 1rem;
+    padding: 2rem 1rem 1rem 1rem ;
     gap: 1.5rem;
 }
 
 .Footer-container-template{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-
-.Footer-container-products {
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 50%;
-    gap: 1rem;
-    padding: 1rem;
-    border-right: solid 1px black;
+    width: 100%;
 }
 
-.Footer-container-products span {
-    font-size: 1.2rem;
+.Footer-container-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.Footer-container-info a {
     font-weight: 500;
+    color: white;
+    text-decoration: none;
+}
+.Footer-container-info  a:hover {
+    color: rgb(32, 32, 32);
 }
 
 .Footer-container-nav {
@@ -43,8 +45,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 50%;
-    height: 100%;
+    width: 100%;
     gap: 1rem;
     padding: 1rem;
 }
@@ -52,6 +53,42 @@
 .Footer-container-socials {
     display: flex;
     gap: 2rem;
+}
+
+.Footer-container-socials {
+    display: flex;
+}
+
+.Footer-container-map {
+    display: flex;
+    background-image: url(/public/assets/img/map.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 20rem;
+    height: 10rem;
+    border-radius: .5rem;
+    align-items: center;
+    justify-content: center;
+}
+.Footer-container-map a {
+    color: black;
+    text-decoration: none;
+    font-weight: 700;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 2.5rem 8rem 2.5rem 8rem ;
+}
+
+.Footer-container-devs {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
+.Footer-container-devs  a{
+    color: white;
+    text-decoration: none;
+}
+.Footer-container-devs  a:hover {
+    color: rgb(32, 32, 32);
 }
 
 a img {
@@ -80,4 +117,26 @@ a img {
     width: 3rem;
     height: 3rem;
     cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    .Footer-container-template{
+        flex-direction: row;
+        width: 80%;
+    }    
+
+    .Footer-container-info {
+        border-left: #878787 solid .2px;
+    }
+
+    .Footer-container-devs {
+        flex-direction: row;
+        gap: .6rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .Footer-container-template{
+        width: 60%;
+    }
 }
