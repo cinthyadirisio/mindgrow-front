@@ -13,12 +13,15 @@ function Header() {
       <div className='logo-title'>
         <LinkRouter to={'/'}>
           <Logo />
-        </LinkRouter>
+          </LinkRouter>
         <h2>MindGrow</h2>
       </div>
       
-      <BurgerNav />
-      <Cart/>
+      
+      <div className='header-info'>
+        <BurgerNav />
+        <Cart/>
+      </div>
     </header>
   )
 }

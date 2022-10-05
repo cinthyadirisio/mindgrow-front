@@ -3,6 +3,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  padding: 0 1rem;
 }
 .carousel-title{
     align-self: center;

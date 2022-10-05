@@ -50,6 +50,14 @@
     padding: 1rem;
 }
 
+.Footer-link-nav{
+    color: white;
+    font-weight: 500;
+}
+.Footer-link-nav:hover {
+    color: rgb(32, 32, 32);
+}
+
 .Footer-container-socials {
     display: flex;
     gap: 2rem;
@@ -73,9 +81,16 @@
 .Footer-container-map a {
     color: black;
     text-decoration: none;
+    font-size: 1.1rem;
+    text-align: center;
     font-weight: 700;
     background-color: rgba(255, 255, 255, 0);
-    padding: 2.5rem 8rem 2.5rem 8rem ;
+    padding: 3.25rem 8rem 3.25rem 8rem ;
+}
+.Footer-container-map a:hover{
+    border-radius: .5rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.292);
 }
 
 .Footer-container-devs {
@@ -112,6 +127,7 @@ a img {
     background-color: #77628C;
     background-position: center;
     position: absolute;
+    top: 110rem;
     right: 1rem;
     border: none;
     width: 3rem;
