@@ -12,9 +12,9 @@ export const usersAPI = createApi({
                 url: '/users/signup',
                 method: 'POST',
                 body: body,
-                headers: {
+                /*headers: {
                     'Content-type': 'application/json; charset=UTF-8',
-                },
+                },*/
             }),
             invalidatesTags: ['Post'],
         }),
@@ -23,9 +23,9 @@ export const usersAPI = createApi({
                 url: '/users/signin',
                 method: 'POST',
                 body: body,
-                headers: {
+                /*headers: {
                     'Content-type': 'application/json; charset=UTF-8',
-                },
+                },*/
             }),
             invalidatesTags: ['Post'],
         }),
@@ -33,7 +33,7 @@ export const usersAPI = createApi({
             query: (token) => ({
                 url: '/users/token',
                 method: 'GET',
-                headers: {Authorization: `Bearer ${token}` }
+                /*headers: {Authorization: `Bearer ${token}` }*/
             })
         }),
         signOut: builder.mutation({
@@ -52,7 +52,7 @@ export const usersAPI = createApi({
                 url: '/users/editProfile',
                 method: 'PATCH',
                 body: body,
-                headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
+                /*headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}*/
             }),
         }),
     })

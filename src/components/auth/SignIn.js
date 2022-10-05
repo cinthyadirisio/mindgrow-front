@@ -3,6 +3,9 @@ import { useSignInMutation } from '../../features/userAPI'
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../features/loggedSlice'
 import toast, { Toaster } from 'react-hot-toast';
+import SignInGoogle from './SignInGoogle';
+import '../../styles/SignInStyles.css'
+
 
 export default function SignIn() {
 
@@ -12,8 +15,8 @@ export default function SignIn() {
     const useRefPassword = useRef()
 
     const SignInArray = [
-        { item: "mail", type: "email", value: useRefEmail, id: "signIn1", min: 4, max: 100 },
-        { item: "password", type: "text", value: useRefPassword, id: "signIn2", min: 3, max: 100 },
+        { item: "Email", type: "email", value: useRefEmail, id: "signIn1", min: 4, max: 100  },
+        { item: "Password", type: "text", value: useRefPassword, id: "signIn2", min: 3, max: 100 },
     ]
     function submitInfo(text) {
         text.preventDefault();
@@ -29,7 +32,7 @@ export default function SignIn() {
                 console.log(response)
                 dispatch(setUser(response.data.response.user))
                 //localStorage.setItem('token', response.data.response.token)
-                toast("Welcome" + response.data.response.user.name, {
+                toast("Welcome" + "" + response.data.response.user.name, {
                     icon: "😏",
                     style: {
                         borderRadius: ".5rem",
@@ -52,25 +55,32 @@ export default function SignIn() {
     }
     return (
 
-        <>
+        <div className='SignInPage'>
+             <div className='signIn-img'>
+                    <img src="https://i.im.ge/2022/10/05/1kKVu1.SignInCanabbis.png" alt="signiage" />
+                </div>
             <form className='Form' onSubmit={submitInfo}>
+               
+                <div className='signInInputContainer'>
                 {
                     SignInArray.map((element) => {
                         return (
-                            <div>
-                                <label htmlFor={element.item} > {element.item} </label>
-                                <input type={element.type} ref={element.value} />
-                            </div>
+                                <div className='signIn-input'>
+                                    <label htmlFor={element.item} > {element.item} </label>
+                                    <input type={element.type} ref={element.value} placeholder='|' />
+                                </div>
                         )
                     })
                 }
-                <div className='Form-city'>
-                    <button> Submit</button>
+                <div className='Form-user'>
+                    <button> Sign In!</button>
+                    <SignInGoogle/>
+                </div>
                 </div>
             </form>
 
             <Toaster />
 
-        </>
+        </div>
     )
 }
