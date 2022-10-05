@@ -16,7 +16,7 @@ function Header() {
         </LinkRouter>
         <h2>MindGrow</h2>
       </div>
-
+      
       <BurgerNav />
       <Cart/>
     </header>

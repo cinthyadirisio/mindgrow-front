@@ -7,7 +7,6 @@ import SignInGoogle from './SignInGoogle';
 import '../../styles/SignInStyles.css'
 
 
-
 export default function SignIn() {
 
     const [signInUser] = useSignInMutation()
