@@ -1,10 +1,17 @@
 import React from 'react'
 import '../../styles/Products.css'
 import { Link as LinkRouter } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 export default function ProductCard(props) {
-
+    const user = useSelector(state => state.logged.user)
     return (
         <div key={props.id} className='card-p'>
+            {
+                (user && user.role === "admin") &&
+                <button className='options'>
+                    <img src='/assets/icons/option.png' alt='icon' />
+                </button>
+            }
             <img src={props.photo} alt="Product" />
             <div className='info'>
                 <p>{props.category}</p>
