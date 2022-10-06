@@ -12,7 +12,6 @@ export default function Products() {
     const { data, isLoading } = useGetAllProductsQuery({ sort: sort, category: category, product: product, subcategory: subcategory })
     const products = data?.response.products
     const subcategories = data?.response.subcategories
-    console.log(subcategories);
 
     return (
         <div className='container'>
@@ -81,16 +80,20 @@ export default function Products() {
                         <div>
                             {
                                 subcategories.map((subcategory) => {
-                                    return (
+                                    const filteredProducts = products.filter(product => product.subcategory === subcategory)
+                                    // if (filteredProducts.length === 0) {
+                                    //     return null;
+                                    // }
+                                    return filteredProducts.length > 0 ? (
                                         <div className="cards-container" key={subcategory}>
                                             <h3>{subcategory}</h3>
                                             <div className='cards-subcategory'>
                                                 {
-                                                    products.filter(product => product.subcategory === subcategory).map(item => <ProductCard key={item._id} id={item._id} name={item.name} category={item.category} subcategory={item.subcategory} price={item.price} photo={item.photo} />)
+                                                    filteredProducts.map(item => <ProductCard key={item._id} id={item._id} name={item.name} category={item.category} subcategory={item.subcategory} price={item.price} photo={item.photo} />)
                                                 }
                                             </div>
                                         </div>
-                                    )
+                                    ) : null;
                                 })
                             }
                         </div>
