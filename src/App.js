@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './styles/header.css';
@@ -11,9 +11,10 @@ import SignUp from './pages/SignUp'
 import ProductsPage from './pages/ProductsPage';
 import DetailsPage from './pages/DetailsPage';
 import { useDispatch, useSelector } from 'react-redux';
-import {useSignInTokenMutation} from './features/userAPI'
+import { useSignInTokenMutation } from './features/userAPI'
 import { setUser } from './features/loggedSlice';
 import BlogDetails from './pages/BlogDetails'
+import ScrollToTop from './components/ScrollToTop';
 
 
 
@@ -45,14 +46,15 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <WebsiteLayout>
         <Routes>
 
           <Route path='/' element={<Home />} />
           <Route path='/products' element={<ProductsPage />} />
           <Route path='/whymindgrow' element={<WhyMindGrowPage />} />
-          <Route path='/signin' element={!user?<SignIn />: <Home />} />
-          <Route path='/signup' element={!user?<SignUp />: <Home />} />
+          <Route path='/signin' element={!user ? <SignIn /> : <Home />} />
+          <Route path='/signup' element={!user ? <SignUp /> : <Home />} />
           <Route path='/products/:id' element={<DetailsPage />} />
           <Route path='/blog/:id' element={<BlogDetails />} />
           <Route path='/*' element={<NotFound />} />
