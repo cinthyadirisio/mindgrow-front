@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cart-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1.5rem;
+}
+
+.cart-container h2 {
+    font-size: 1.5rem;
+    color: #402f50;
+    margin: 0;
+    padding-bottom: 0.5rem;
+    text-shadow: 2px 2px #74b49b;
+}
+.shoppingCart{
+    display: flex;
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 1rem;
+    flex-direction: column;
+
+}
+table{
+    width: 100%;
+    padding: 1rem;
+
+}
+table .remove{
+    background: none;
+    padding: .3rem;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+table svg{
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: #5C8D89;
+
+}
+
+table img{
+    width: 100%;
+    height: 5rem;
+    object-fit: cover;
+}
+table p{
+    font-weight: 500;
+
+}
+table tr{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+thead{
+    width:100%;
+    padding: .5rem;
+}
+table th{
+    width: 20%
+}
+table td{
+    display: flex;
+    width: 20%;
+    flex-direction: column;
+    padding: .5rem;
+    justify-content: center;
+    align-items: center;
+}
+table button{
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: .2rem 0rem .2rem 0rem;
+
+}
+.input{
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: .2rem;
+}
+.Total-cart{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1rem;
+    font-size: 15pt;
+}
+
+tbody{
+    border-bottom: 3px solid gray;
+}
+
+tbody td{
+    border-bottom: 1px dotted #A7D7C5;
+}
