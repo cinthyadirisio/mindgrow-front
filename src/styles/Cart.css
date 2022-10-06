@@ -12,6 +12,8 @@
     align-items: center;
     flex-wrap: wrap;
     padding: 1.5rem;
+    font-size: 8pt;
+
 }
 
 .cart-container h2 {
@@ -20,76 +22,99 @@
     margin: 0;
     padding-bottom: 0.5rem;
     text-shadow: 2px 2px #74b49b;
+    width: 100%;
+    text-align: center;
 }
-.shoppingCart{
+
+.shoppingCart,
+.bill-data {
     display: flex;
     width: 100%;
     border-radius: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 1rem;
     flex-direction: column;
-
+    margin-bottom: 2rem;
 }
-table{
+
+.bill-data {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+table {
     width: 100%;
     padding: 1rem;
 
 }
-table .remove{
+
+table button {
     background: none;
     padding: .3rem;
     border: 1px solid white;
     border-radius: 50%;
 }
-table svg{
+
+table svg {
     width: 1.5rem;
     height: 1.5rem;
     fill: #5C8D89;
-
 }
 
-table img{
+table img {
     width: 100%;
     height: 5rem;
     object-fit: cover;
 }
-table p{
+
+table p {
     font-weight: 500;
 
+
 }
-table tr{
+
+table tr {
     display: flex;
-    width: 100%;
-    justify-content: space-between;
+    justify-content: space-around;
 }
-thead{
-    width:100%;
+
+thead {
+    width: 100%;
     padding: .5rem;
 }
-table th{
-    width: 20%
-}
-table td{
-    display: flex;
+
+.first {
     width: 20%;
+}
+
+.second {
+    width: 40%;
+}
+
+.third {
+    width: 40%;
+}
+
+table td {
+    display: flex;
     flex-direction: column;
     padding: .5rem;
     justify-content: center;
     align-items: center;
 }
-table button{
-    width: 1.5rem;
-    height: 1.5rem;
-    padding: .2rem 0rem .2rem 0rem;
 
+.quantity {
+    padding: .2rem .5rem;
+    background-color: #F9F8EB;
+    border-radius: 50%;
 }
-.input{
+
+.input {
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: .2rem;
 }
-.Total-cart{
+
+.Total-cart {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -97,10 +122,70 @@ table button{
     font-size: 15pt;
 }
 
-tbody{
+tbody {
     border-bottom: 3px solid gray;
 }
 
-tbody td{
+tbody td {
     border-bottom: 1px dotted #A7D7C5;
+}
+
+
+.bill-data {
+    display: flex;
+    width: 100%;
+    gap: .5rem;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F9F8EB;
+}
+
+.bill-data form,
+label {
+    display: flex;
+    flex-direction: column;
+    padding: .1rem;;
+
+}
+
+.bill-data form {
+    width: 100%;
+    padding: 1rem;
+}
+
+.bill-data h3 {
+    font-size: 15pt;
+}
+
+.bill-data input{
+    border: 1px solid #aaa99d;
+    border-radius: 1rem;
+}
+.submit{
+    padding: .2rem .5rem;
+    background-color: #402f50;
+    border: none;
+    color: #A7D7C5;
+    font-weight: 500;
+}
+.notifications{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+}
+.notifications img{
+    padding: 2%;
+}
+
+@media screen and (min-width:800px) {
+    .cart-container{
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .shoppingCart, .bill-data {
+        width: 45%;
+    }
 }
