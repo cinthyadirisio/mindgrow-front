@@ -13,7 +13,7 @@ function BlogCards(props) {
     <div className='blogcard' key={props.id}>
         <img src={props.photo} alt="photo" />
         <div className='bloginfo'>
-            <h3>{props.title}</h3>
+            <h4>{props.title}</h4>
             <LinkRouter to={`/blog/${props.id}`} ><button>Read more</button></LinkRouter>
             
         </div>
