@@ -4,12 +4,12 @@
   min-height: 80vh;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   gap: 2rem;
-  padding: .4rem 2rem;
+  padding: .4rem 2rem 3rem 2rem;
 }
 .cards-container h2{
-  width: 90%;
+  width: 100%;
+  height: 3rem;
   color: #74B49B;
   padding: .5rem;
   border-bottom: 1px solid #74B49B;
