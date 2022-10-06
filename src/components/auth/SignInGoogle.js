@@ -62,7 +62,7 @@ export default function SignInGoogle() {
         });
         google.accounts.id.renderButton(
             buttonDiv.current,
-            { theme: "outline", size: "medium", text: 'signin_with', width: "150px" }
+            { theme: "outline", size: "medium", text: 'signin_with', locale: "en" }
         )
     }, [])
 

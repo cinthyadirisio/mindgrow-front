@@ -67,7 +67,7 @@ export default function SignIn() {
                         return (
                                 <div className='signIn-input'>
                                     <label htmlFor={element.item} > {element.item} </label>
-                                    <input type={element.type} ref={element.value} placeholder='|' />
+                                    <input type={element.type} ref={element.value} required placeholder='|' />
                                 </div>
                         )
                     })

@@ -25,8 +25,7 @@ export default function SignUpGoogle() {
       from: "google",
     };
     newUser(data).then(response => {
-      if (response.data.success) {
-        console.log(response)
+      if (response.data?.success) {
         dispatch(setUser(response.data.response.user))
         toast("It has been successfully registered", {
           icon: "😏",
@@ -36,6 +35,7 @@ export default function SignUpGoogle() {
             color: "aliceblue",
           },
         });
+        navigate("/signin", { replace: true })
       } else {
         toast.error(response.data.message,
           {
@@ -46,15 +46,29 @@ export default function SignUpGoogle() {
               color: "aliceblue",
             },
           })
+        if (response.error) {
+          toast.error(response.data.message,
+            {
+              icon: "😵",
+              style: {
+                borderRadius: ".5rem",
+                background: "#3f3d56",
+                color: "aliceblue",
+              },
+            })
+        }
+        navigate("/signin", { replace: true })
       }
-    }).catch(error => console.log(error));
+    }).catch(error => {
+      console.log(error)
+    }
+    );
   }
 
   useEffect(() => {
     /*global google*/
     google.accounts.id.initialize({
-      client_id:
-        "91158945037-qiba2jg2lrvdirm1kr4mi0sk9s2agee8.apps.googleusercontent.com",
+      client_id: "982683585359-pp3ve44loj4lvumdai44mg7gigla6j1j.apps.googleusercontent.com",
       callback: handleCredentialResponse,
       context: "signup",
     });
@@ -66,7 +80,6 @@ export default function SignUpGoogle() {
   return (
     <div>
       <div ref={buttonDiv}></div>
-      <Toaster />
     </div>
   );
 }
