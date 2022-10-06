@@ -4,12 +4,15 @@ import loggedSlice from './loggedSlice'
 import productsAPI from './productsAPI'
 import publicationsAPI from './publicationsAPI'
 import modalSlice from './modalSlice'
+import cartSlice from './cartSlice'
 export const store = configureStore({
     reducer: {
         [usersAPI.reducerPath]: usersAPI.reducer,
         [productsAPI.reducerPath]: productsAPI.reducer,
         [publicationsAPI.reducerPath]: publicationsAPI.reducer,
         logged: loggedSlice,
-        modal: modalSlice
+        modal: modalSlice,
+        cart:cartSlice
+
     }
 })

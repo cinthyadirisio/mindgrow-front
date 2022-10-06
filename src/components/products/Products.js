@@ -63,6 +63,7 @@ export default function Products() {
                                     subcategory={item.subcategory}
                                     price={item.price}
                                     photo={item.photo}
+                                    stock={item.stock}
                                 />)
                         }
                         {
