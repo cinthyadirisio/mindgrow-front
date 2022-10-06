@@ -12,6 +12,7 @@ export default function Products() {
     const { data, isLoading } = useGetAllProductsQuery({ sort: sort, category: category, product: product, subcategory: subcategory })
     const products = data?.response.products
     const subcategories = data?.response.subcategories
+    console.log(subcategories);
 
     return (
         <div className='container'>
@@ -43,7 +44,7 @@ export default function Products() {
                         <select onChange={(e) => setSubcategory(e.target.value)}>
                             <option value=''>Subcategories</option>
                             {
-                                subcategories?.map(item => <option value={item}>{item}</option>)
+                                subcategories?.map(item => <option value={item} key={item}>{item}</option>)
                             }
                         </select>
                     </div>
@@ -51,15 +52,56 @@ export default function Products() {
                 <SearchBar value={product} onChange={(e) => setProduct(e.target.value)} />
             </div>
             <div className='cards-container'>
-                <h2>{category === "" ? 'All products' : category}</h2>
-                {
-                    products?.map(item => <ProductCard id={item._id} name={item.name} category={item.category} subcategory={item.subcategory} price={item.price} photo={item.photo} />)
+                {subcategories?.length === 0 && (
+                    <>
+                        <h2>{category === "" ? 'All products' : category}</h2>
+                        {
+                            products?.map(item =>
+                                <ProductCard key={item._id}
+                                    id={item._id}
+                                    name={item.name}
+                                    category={item.category}
+                                    subcategory={item.subcategory}
+                                    price={item.price}
+                                    photo={item.photo}
+                                />)
+                        }
+                        {
+                            products?.length === 0 && <p>No results</p>
+                        }
+                        {
+                            isLoading && <Loading />
+                        }
+                    </>
+                )
                 }
-                {
-                    products?.length === 0 && <p>No results</p>
-                }
-                {
-                    isLoading && <Loading />
+                {subcategories?.length > 0 && (
+                    <>
+                        <h2>{category}</h2>
+                        <div>
+                            {
+                                subcategories.map((subcategory) => {
+                                    return (
+                                        <div className="cards-container" key={subcategory}>
+                                            <h3>{subcategory}</h3>
+                                            <div className='cards-subcategory'>
+                                                {
+                                                    products.filter(product => product.subcategory === subcategory).map(item => <ProductCard key={item._id} id={item._id} name={item.name} category={item.category} subcategory={item.subcategory} price={item.price} photo={item.photo} />)
+                                                }
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                        {
+                            products?.length === 0 && <p>No results</p>
+                        }
+                        {
+                            isLoading && <Loading />
+                        }
+                    </>
+                )
                 }
             </div>
         </div>
