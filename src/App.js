@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useSignInTokenMutation } from './features/userAPI'
 import { setUser } from './features/loggedSlice';
 import BlogDetails from './pages/BlogDetails'
+import CartPage from './pages/CartPage';
 import ScrollToTop from './components/ScrollToTop';
 
 
@@ -57,6 +58,7 @@ function App() {
           <Route path='/signup' element={!user ? <SignUp /> : <Home />} />
           <Route path='/products/:id' element={<DetailsPage />} />
           <Route path='/blog/:id' element={<BlogDetails />} />
+          <Route path='/cart' element={<CartPage />} />
           <Route path='/*' element={<NotFound />} />
 
 
