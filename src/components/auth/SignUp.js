@@ -5,13 +5,16 @@ import { useSignUpMutation } from "../../features/userAPI";
 import { useRef } from "react";
 import toast, { Toaster } from 'react-hot-toast';
 import SignUpGoogle from './SignUpGoogle';
+import '../../styles/SignUp.css'
 
 function Input({ label, name, type }) {
     return (
-        <label className="form-label">
-            {label}
-            <input name={name} type={type} />
-        </label>
+        <div className='signUp-input'>
+            <label>
+                {label}
+                <input name={name} type={type} />
+            </label>
+        </div>
     );
 }
 
@@ -38,7 +41,7 @@ export default function SignUpForm() {
             if (response.data.success) {
                 console.log(response)
                 dispatch(setUser(response.data.response.user))
-  
+
                 toast("It has been successfully registered", {
                     icon: "😏",
                     style: {
@@ -64,18 +67,25 @@ export default function SignUpForm() {
     };
 
     return (
-        <div>
-            <form ref={form} className="form-class">
-                <Input label="Name:" name="name" />
-                <Input label="Lastname:" name="lastname" />
-                <Input label="Mail:" name="mail" />
-                <Input label="Country:" name="country" />
-                <Input label="Photo URL:" name="photo" />
-                <Input label="Password:" name="password" type="password" />
-                <button type="submit" onClick={handleSubmit}>
-                    Submit
-                </button>
-                <SignUpGoogle/>
+        <div className='sign-up-page'>
+            <div className='signUp-img'>
+                <img src="https://i.im.ge/2022/10/05/1kKVu1.SignInCanabbis.png" alt="signiage" />
+            </div>
+            <form ref={form} className='Form-signup'>
+                <div className='signInInputContainer'>
+                    <Input label="Name" name="name" />
+                    <Input label="Lastname" name="lastname" />
+                    <Input label="Mail" name="mail" />
+                    <Input label="Country" name="country" />
+                    <Input label="Photo URL" name="photo" />
+                    <Input label="Password" name="password" type="password" />
+                </div>
+                <div className='Form-user-signup'>
+                    <button type="submit" onClick={handleSubmit}>
+                        Submit
+                    </button>
+                    <SignUpGoogle />
+                </div>
             </form>
             <Toaster />
         </div>

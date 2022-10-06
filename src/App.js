@@ -13,6 +13,10 @@ import DetailsPage from './pages/DetailsPage';
 import { useDispatch, useSelector } from 'react-redux';
 import {useSignInTokenMutation} from './features/userAPI'
 import { setUser } from './features/loggedSlice';
+import BlogDetails from './pages/BlogDetails'
+
+
+
 function App() {
   const user = useSelector((state) => state.logged.user);
   const [signInToken] = useSignInTokenMutation();
@@ -50,6 +54,7 @@ function App() {
           <Route path='/signin' element={!user?<SignIn />: <Home />} />
           <Route path='/signup' element={!user?<SignUp />: <Home />} />
           <Route path='/products/:id' element={<DetailsPage />} />
+          <Route path='/blog/:id' element={<BlogDetails />} />
           <Route path='/*' element={<NotFound />} />
 
 
