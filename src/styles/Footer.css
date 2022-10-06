@@ -121,15 +121,14 @@ a img {
 }
 
 .scroll {
-    background-image: url('../../public/assets/icons/up-arrow.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: #77628C;
-    background-position: center;
     border: none;
-    width: 3rem;
-    height: 3rem;
+    width: 2.8rem;
+    height: 2.8rem;
     cursor: pointer;
+    right: 40px;
+    bottom: 40px;
+    position: fixed;
+    z-index: 2;
 }
 
 @media screen and (min-width: 768px) {
