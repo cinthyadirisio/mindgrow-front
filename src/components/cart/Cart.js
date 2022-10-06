@@ -1,21 +1,11 @@
-import React, { useState} from 'react'
-import { useSelector} from 'react-redux'
-import { addProduct, deleteProduct } from '../../features/cartSlice'
-
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { deleteProduct, increment, decrement } from '../../features/cartSlice'
 export default function Cart() {
-
-    const [cart, setCart] =useState([])
-
     const products = useSelector(state => state.cart.productsCart)
-    console.log(products)
-
-    // const handleDecrement = (cartState) => {
-    //     setCart(cart =>
-    //         cart.map((item) =>
-    //         product.id === item.id ? (...item, product.quantity: item.quantity - 1) : item))
-    // }
-
-
+    const dispatch = useDispatch()
+    let array = products.map(item => item.price * item.quantity)
+    let total = array.reduce((item, sum) => sum + item, 0)
     return (
         <div>
             {
@@ -31,34 +21,47 @@ export default function Cart() {
                                     <th> Total </th>
                                 </tr>
                             </thead>
-                            <tbody> {products?.map((p) => {
-                                return ( 
-                                <tr>
-                                    <td> X </td>
-                                    <td>
-                                        <img style={{width:20}} src={p.photo} alt=""/>
-                                        <p>{p.name} </p>
-                                    </td>
-                                    <td>
-                                        <p>{p.price} </p>
-                                    </td>
+                            <tbody> {
+                                products.map((p) => {
+                                    return (
+                                        <tr>
+                                            <td>
+                                                <button type='button' onClick={() => dispatch(deleteProduct(p.id))}>
+                                                    X
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <img style={{ width: 20 }} src={p.photo} alt="" />
+                                                <p>{p.name} </p>
+                                            </td>
+                                            <td>
+                                                <p>{p.price} </p>
+                                            </td>
 
-                                    <td>
-                                        <button type="button" onClick={()=> handleDecrement(p.id)}></button>
-                                        <input type="number" name="" value={p.quantity} max={p.stock} />
-                                
-                                    </td>
-                                    <td>
-                                        {p.quantity * p.price}
-                                    </td>
-                                </tr>)
-                            })}
-                                
+                                            <td>
+                                                <button type="button" onClick={() => dispatch(decrement(p.id))}>    restar    </button>
+                                                <p>{p.quantity}</p>
+                                                <button type="button" onClick={() => dispatch(increment(p.id))}>    sumar    </button>
+
+                                            </td>
+                                            <td>
+                                                {p.quantity * p.price}
+                                            </td>
+                                        </tr>)
+                                })}
+
                             </tbody>
                         </table>
                     </form>)
             }
-
+            <div>
+                <p>
+                    Total
+                </p>
+                <p>
+                    ${total.toFixed(2)}
+                </p>
+            </div>
         </div>
     )
 }
