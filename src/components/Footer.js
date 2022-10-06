@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link as LinkRouter } from 'react-router-dom'
 import '../styles/Footer.css'
-
+import { Toaster } from 'react-hot-toast';
 export default function Footer() {
     const scroll = () => {
         window.scrollTo({
@@ -40,6 +40,7 @@ export default function Footer() {
         </div>
         <p>©{today.getFullYear()} MindGrow</p>
         <button className='scroll' onClick={scroll}></button>
+        <Toaster />
     </div>
     
   )

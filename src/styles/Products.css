@@ -3,10 +3,10 @@
   width: 100%;
   min-height: 80vh;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
-  padding: .4rem 2rem;
+  padding: .4rem 2rem 3rem 2rem;
 }
 
 .cards-subcategory {

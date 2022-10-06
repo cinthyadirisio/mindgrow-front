@@ -1,14 +1,16 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "../../styles/header.css";
 import Logo from "./Logo";
 import { Link as LinkRouter } from "react-router-dom";
 import Cart from "./Cart";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import SignOut from "../auth/SignOut";
 
 function Header() {
   const [modal, setModal] = useState(false)
   const [burger, setBurger] = useState(false)
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.logged.user)
 
   return (
     <header className="header-container">
@@ -19,25 +21,16 @@ function Header() {
         <h2>MindGrow</h2>
       </div>
       <div className="header-links">
-          <LinkRouter>Products</LinkRouter>
-          <LinkRouter>Why MindGrow?</LinkRouter>
-        </div>
+        <LinkRouter to='/products'>Products</LinkRouter>
+        <LinkRouter to='whymindgrow'>Why MindGrow?</LinkRouter>
+      </div>
       <div className="header-info">
         {
-          burger && 
+          burger &&
           <div className="header-burger">
             <button className="close" onClick={() => setBurger(!burger)}>X</button>
-            <div className="burger-sign">
-              <button>
-                <svg xmlns="http://www.w3.org/2000/svg" className="bi bi-person-circle" viewBox="0 0 16 16">
-                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                  <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                </svg>
-              </button>
-              <span>Sign</span>
-            </div>
-            <LinkRouter>Products</LinkRouter>
-            <LinkRouter>Why MindGrow?</LinkRouter>
+            <LinkRouter to='/products'>Products</LinkRouter>
+            <LinkRouter to='whymindgrow'>Why MindGrow?</LinkRouter>
           </div>
         }
         <button className="burger-btn" onClick={() => setBurger(!burger)}>
@@ -48,20 +41,30 @@ function Header() {
         <Cart />
         <div>
           <button className="UI-box" onClick={() => setModal(!modal)} >
-            <svg xmlns="http://www.w3.org/2000/svg" className="bi bi-person-circle" viewBox="0 0 16 16">
-              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-              <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-            </svg>
-            {
-              modal && 
-              <div className="container-sign">
-                <LinkRouter to="/auth/signup">Sign Up</LinkRouter>
-                <LinkRouter to="/">Sign In</LinkRouter>
-              </div>
+            {!user ?
+              <svg xmlns="http://www.w3.org/2000/svg" className="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+              </svg>
+              : <img src={user.photo} alt='user' />
             }
           </button>
+          {
+            modal &&
+            <div className="container-sign" onClick={() => setModal(!modal)}>
+              {
+                user ? <SignOut />
+                  :
+                  <>
+                    <LinkRouter to="/signup">Sign Up</LinkRouter>
+                    <LinkRouter to="/signin">Sign In</LinkRouter>
+                  </>
+              }
+
+            </div>
+          }
         </div>
-        
+
       </div>
     </header>
   );

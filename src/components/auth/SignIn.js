@@ -5,7 +5,7 @@ import { setUser } from '../../features/loggedSlice'
 import toast, { Toaster } from 'react-hot-toast';
 import SignInGoogle from './SignInGoogle';
 import '../../styles/SignInStyles.css'
-
+import { useNavigate } from "react-router-dom"
 
 export default function SignIn() {
 
@@ -13,7 +13,7 @@ export default function SignIn() {
     const dispatch = useDispatch()
     const useRefEmail = useRef()
     const useRefPassword = useRef()
-
+    const navigate = useNavigate()
     const SignInArray = [
         { item: "Email", type: "email", value: useRefEmail, id: "signIn1", min: 4, max: 100  },
         { item: "Password", type: "password", value: useRefPassword, id: "signIn2", min: 3, max: 100 },
@@ -29,9 +29,8 @@ export default function SignIn() {
         }
         signInUser(userSignIn).then(response => {
             if (response.data.success) {
-                console.log(response)
                 dispatch(setUser(response.data.response.user))
-                //localStorage.setItem('token', response.data.response.token)
+                localStorage.setItem('token', response.data.response.token)
                 toast("Welcome " + response.data.response.user.name, {
                     icon: "😏",
                     style: {
@@ -40,6 +39,7 @@ export default function SignIn() {
                         color: "aliceblue",
                     },
                 });
+                navigate("/", { replace: true })
             } else {
                 toast.error(response.data.message,
                     {
@@ -67,7 +67,7 @@ export default function SignIn() {
                         return (
                                 <div className='signIn-input'>
                                     <label htmlFor={element.item} > {element.item} </label>
-                                    <input type={element.type} ref={element.value} placeholder='|' />
+                                    <input type={element.type} ref={element.value} required placeholder='|' />
                                 </div>
                         )
                     })

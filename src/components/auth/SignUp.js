@@ -12,7 +12,7 @@ function Input({ label, name, type }) {
         <div className='signUp-input'>
             <label>
                 {label}
-                <input name={name} type={type} />
+                <input name={name} type={type} required />
             </label>
         </div>
     );
@@ -39,9 +39,7 @@ export default function SignUpForm() {
         };
         newUser(formUser).then(response => {
             if (response.data.success) {
-                console.log(response)
                 dispatch(setUser(response.data.response.user))
-
                 toast("It has been successfully registered", {
                     icon: "😏",
                     style: {
@@ -50,6 +48,7 @@ export default function SignUpForm() {
                         color: "aliceblue",
                     },
                 });
+                navigate("/signin", { replace: true })
             } else {
                 toast.error(response.data.message,
                     {
@@ -60,6 +59,7 @@ export default function SignUpForm() {
                             color: "aliceblue",
                         },
                     })
+                navigate("/signin", { replace: true })
             }
         }).catch(error => console.log(error));
 
@@ -71,7 +71,7 @@ export default function SignUpForm() {
             <div className='signUp-img'>
                 <img src="https://i.im.ge/2022/10/05/1kKVu1.SignInCanabbis.png" alt="signiage" />
             </div>
-            <form ref={form} className='Form-signup'>
+            <form ref={form} className='Form-signup' onSubmit={handleSubmit}>
                 <div className='signInInputContainer'>
                     <Input label="Name" name="name" />
                     <Input label="Lastname" name="lastname" />
@@ -81,7 +81,7 @@ export default function SignUpForm() {
                     <Input label="Password" name="password" type="password" />
                 </div>
                 <div className='Form-user-signup'>
-                    <button type="submit" onClick={handleSubmit}>
+                    <button type="submit" >
                         Submit
                     </button>
                     <SignUpGoogle />

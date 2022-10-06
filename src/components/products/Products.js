@@ -97,11 +97,12 @@ export default function Products() {
                         {
                             products?.length === 0 && <p>No results</p>
                         }
-                        {
-                            isLoading && <Loading />
-                        }
+
                     </>
                 )
+                }
+                {
+                    isLoading && <Loading />
                 }
             </div>
         </div>
