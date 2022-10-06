@@ -31,13 +31,9 @@ export const usersAPI = createApi({
             })
         }),
         signOut: builder.mutation({
-            query: (body) => ({
-                url: '/users/signout',
+            query: (id) => ({
+                url: `/users/signout/${id}`,
                 method: 'POST',
-                body: body,
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                },
             }),
             invalidatesTags: ['Post'],
         }),
