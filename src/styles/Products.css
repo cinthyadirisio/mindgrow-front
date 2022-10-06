@@ -1,10 +1,10 @@
 .cards-container {
   display: flex;
   width: 100%;
-  min-height: 80vh;
+  min-height: 87vh;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 2rem;
   padding: .4rem 2rem 3rem 2rem;
 }
@@ -94,6 +94,7 @@
 
 .card-p {
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   width: 18rem;
@@ -113,7 +114,22 @@
   border-radius: 1rem;
   box-shadow: rgba(100, 100, 111, 0.16) 0px 7px 29px 0px;
 }
-
+.options{
+  position: absolute;
+  top: 0rem;
+  right: 0.1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.options img{
+  background: none;
+  width: 1.5rem;
+  padding: 0;
+}
+.options img:hover{
+  background-color: #fffbfb;
+}
 .info {
   width: 100%;
   height: 100%;
