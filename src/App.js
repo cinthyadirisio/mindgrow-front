@@ -20,6 +20,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 
 function App() {
+  const cart = useSelector(state => state.cart.productsCart)
   const user = useSelector((state) => state.logged.user);
   const [signInToken] = useSignInTokenMutation();
   const dispatch = useDispatch()
@@ -43,7 +44,9 @@ function App() {
       verifyToken();
     }
   }, []);
-
+  useEffect(()=>{
+    localStorage.setItem('cart', JSON.stringify(cart))
+  },[cart])
 
   return (
     <BrowserRouter>
