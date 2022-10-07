@@ -7,7 +7,7 @@ export default function Publication() {
     const { data } = useGetAllPublicationsQuery({ category: '' })
     const publication = data?.response[1]
     return (
-        <div className='container'>
+        <div className='container-publication'>
             <div className='publication-container'>
                 <img src={publication?.photo} alt='publication' />
                 <div className='publication-info'>

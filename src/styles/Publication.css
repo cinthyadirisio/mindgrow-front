@@ -1,8 +1,8 @@
-/* .container{
+.container-publication{
   width: 100%;
   display: flex;
   justify-content: center;
-} */
+}
 .publication-container {
   align-self: center;
   display: flex;
