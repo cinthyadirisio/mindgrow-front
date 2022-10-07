@@ -17,12 +17,14 @@ import BlogDetails from './pages/BlogDetails'
 import CartPage from './pages/CartPage';
 import ProfilePage from './pages/ProfilePage'
 import ScrollToTop from './components/ScrollToTop';
+import AdminPage from './pages/AdminPage';
 
 
 
 function App() {
   const cart = useSelector(state => state.cart.productsCart)
   const user = useSelector((state) => state.logged.user);
+  const admin = user?.role === 'admin';
   const [signInToken] = useSignInTokenMutation();
   const dispatch = useDispatch()
   async function verifyToken() {
@@ -65,6 +67,7 @@ function App() {
           <Route path='/cart' element={<CartPage />} />
           <Route path='/profile/:id' element={<ProfilePage />} />
           <Route path='/*' element={<NotFound />} />
+          <Route path='/admindashboard' element={admin ? <AdminPage /> : <NotFound />} />
 
 
         </Routes>

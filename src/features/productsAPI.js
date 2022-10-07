@@ -20,8 +20,18 @@ export const productsAPI = createApi({
         }),
         editProduct: builder.mutation({
             query: (body) => `/products/${body.id}`
-        })
+        }),
+        getNewProduct: builder.mutation({
+            query(product) {
+                return {
+                    url: "/products",
+                    method: "POST",
+                    body: product,
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                };
+            },
+        }),
     })
 })
 export default productsAPI
-export const { useGetAllProductsQuery, useGetProductQuery, useDeleteOneProductMutation, useEditProductMutation } = productsAPI
+export const { useGetAllProductsQuery, useGetProductQuery, useDeleteOneProductMutation, useEditProductMutation, useGetNewProductMutation } = productsAPI
