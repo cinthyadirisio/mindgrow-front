@@ -26,7 +26,7 @@
   font-weight: 500;
 }
 .header-links a:hover {
-  color: #304a48;
+  color: #dce6d5;
 }
 
 .header-info {
@@ -202,6 +202,7 @@
 
 /* Cart */
 .cart-button {
+  position: relative;
   width: 3rem;
   height: 3rem;
   background: none;
@@ -223,7 +224,21 @@
 .cart-button svg:hover {
   fill: hsl(157, 30%, 58%);
 }
-
+.count{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: .8rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  top: 1.9rem;
+  background-color: #77628c;
+  color: #ecebdd;
+  padding: .2rem;
+  border-radius: 50%;
+}
 @media screen and (max-width: 1024px) {
   .header-links {
     gap: 1rem;
@@ -233,7 +248,7 @@
   }
 }
 
-@media screen and (max-width: 864px) {
+@media screen and (max-width: 900px) {
   .logo-title h2 {
     display: none;
   }
