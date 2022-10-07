@@ -13,7 +13,15 @@ export const productsAPI = createApi({
         getProduct: builder.query({
             query: (id) => `/products/${id}`
         }),
+        deleteOneProduct: builder.mutation({
+            query: (id) => `/products/${id}`,
+            method: 'DELETE',
+            headers: {Authorization: `Bearer ${localStorage.getItem('token')}` }
+        }),
+        editProduct: builder.mutation({
+            query: (body) => `/products/${body.id}`
+        })
     })
 })
 export default productsAPI
-export const { useGetAllProductsQuery, useGetProductQuery } = productsAPI
+export const { useGetAllProductsQuery, useGetProductQuery, useDeleteOneProductMutation, useEditProductMutation } = productsAPI
