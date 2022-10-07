@@ -5,6 +5,7 @@ import { Link as LinkRouter } from "react-router-dom";
 import Cart from "./Cart";
 import { useDispatch, useSelector } from "react-redux";
 import SignOut from "../auth/SignOut";
+import ProfilePage from '../../pages/ProfilePage'
 
 function Header() {
   const [modal, setModal] = useState(false)
@@ -57,7 +58,11 @@ function Header() {
             modal &&
             <div className="container-sign" onClick={() => setModal(!modal)}>
               {
-                user ? <SignOut />
+                user ? 
+                <>
+                <LinkRouter to={`/profile/${user.id}`}>Profile</LinkRouter>
+                <SignOut />
+                </>
                   :
                   <>
                     <LinkRouter to="/signup">Sign Up</LinkRouter>
