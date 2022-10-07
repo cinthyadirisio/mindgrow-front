@@ -14,11 +14,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useSignInTokenMutation } from './features/userAPI'
 import { setUser } from './features/loggedSlice';
 import BlogDetails from './pages/BlogDetails'
+import CartPage from './pages/CartPage';
 import ScrollToTop from './components/ScrollToTop';
 
 
 
 function App() {
+  const cart = useSelector(state => state.cart.productsCart)
   const user = useSelector((state) => state.logged.user);
   const [signInToken] = useSignInTokenMutation();
   const dispatch = useDispatch()
@@ -42,7 +44,9 @@ function App() {
       verifyToken();
     }
   }, []);
-
+  useEffect(()=>{
+    localStorage.setItem('cart', JSON.stringify(cart))
+  },[cart])
 
   return (
     <BrowserRouter>
@@ -57,6 +61,7 @@ function App() {
           <Route path='/signup' element={!user ? <SignUp /> : <Home />} />
           <Route path='/products/:id' element={<DetailsPage />} />
           <Route path='/blog/:id' element={<BlogDetails />} />
+          <Route path='/cart' element={<CartPage />} />
           <Route path='/*' element={<NotFound />} />
 
 

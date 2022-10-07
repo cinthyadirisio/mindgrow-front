@@ -18,19 +18,23 @@ function Header() {
         <LinkRouter to={"/"}>
           <Logo />
         </LinkRouter>
-        <h2>MindGrow</h2>
+        <LinkRouter to={"/"}>
+          <h2>MindGrow</h2>
+        </LinkRouter>
       </div>
       <div className="header-links">
+        <LinkRouter to='/'>Home</LinkRouter>
         <LinkRouter to='/products'>Products</LinkRouter>
         <LinkRouter to='whymindgrow'>Why MindGrow?</LinkRouter>
       </div>
       <div className="header-info">
         {
           burger &&
-          <div className="header-burger">
+          <div className="header-burger" >
             <button className="close" onClick={() => setBurger(!burger)}>X</button>
-            <LinkRouter to='/products'>Products</LinkRouter>
-            <LinkRouter to='whymindgrow'>Why MindGrow?</LinkRouter>
+            <LinkRouter onClick={() => setBurger(!burger)} to='/' >Home</LinkRouter>
+            <LinkRouter onClick={() => setBurger(!burger)} to='/products'>Products</LinkRouter>
+            <LinkRouter onClick={() => setBurger(!burger)} to='whymindgrow'>Why MindGrow?</LinkRouter>
           </div>
         }
         <button className="burger-btn" onClick={() => setBurger(!burger)}>
