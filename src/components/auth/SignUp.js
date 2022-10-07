@@ -74,7 +74,7 @@ export default function SignUpForm() {
             <form ref={form} className='Form-signup' onSubmit={handleSubmit}>
                 <div className='signInInputContainer'>
                     <Input label="Name" name="name" />
-                    <Input label="Lastname" name="lastname" />
+                    <Input label="Last Name" name="lastname" />
                     <Input label="Mail" name="mail" />
                     <Input label="Country" name="country" />
                     <Input label="Photo URL" name="photo" />

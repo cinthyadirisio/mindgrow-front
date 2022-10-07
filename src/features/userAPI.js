@@ -7,6 +7,13 @@ export const usersAPI = createApi({
     }),
     tagTypes: ['Post'],
     endpoints: (builder) => ({
+
+        profileOne: builder.mutation({
+                query: (id) => ({
+                url: `/users/${id}`,
+                method: 'GET',
+                headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
+        }),
         signUp: builder.mutation({
             query: (body) => ({
                 url: '/users/signup',
@@ -39,7 +46,7 @@ export const usersAPI = createApi({
         }),
         editProfile: builder.mutation({
             query: (body) => ({
-                url: '/users/editProfile',
+                url: `/users/${body._id}`,
                 method: 'PATCH',
                 body: body,
                 headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
@@ -48,4 +55,4 @@ export const usersAPI = createApi({
     })
 })
 export default usersAPI
-export const { useSignUpMutation, useSignInMutation, useSignOutMutation, useSignInTokenMutation, useEditProfileMutation } = usersAPI
+export const { useProfileOneMutation ,useSignUpMutation, useSignInMutation, useSignOutMutation, useSignInTokenMutation, useEditProfileMutation } = usersAPI

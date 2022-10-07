@@ -5,6 +5,7 @@ import { Link as LinkRouter } from "react-router-dom";
 import Cart from "./Cart";
 import { useDispatch, useSelector } from "react-redux";
 import SignOut from "../auth/SignOut";
+import ProfilePage from '../../pages/ProfilePage'
 
 function Header() {
   const [modal, setModal] = useState(false)
@@ -18,19 +19,23 @@ function Header() {
         <LinkRouter to={"/"}>
           <Logo />
         </LinkRouter>
-        <h2>MindGrow</h2>
+        <LinkRouter to={"/"}>
+          <h2>MindGrow</h2>
+        </LinkRouter>
       </div>
       <div className="header-links">
+        <LinkRouter to='/'>Home</LinkRouter>
         <LinkRouter to='/products'>Products</LinkRouter>
         <LinkRouter to='whymindgrow'>Why MindGrow?</LinkRouter>
       </div>
       <div className="header-info">
         {
           burger &&
-          <div className="header-burger">
+          <div className="header-burger" >
             <button className="close" onClick={() => setBurger(!burger)}>X</button>
-            <LinkRouter to='/products'>Products</LinkRouter>
-            <LinkRouter to='whymindgrow'>Why MindGrow?</LinkRouter>
+            <LinkRouter onClick={() => setBurger(!burger)} to='/' >Home</LinkRouter>
+            <LinkRouter onClick={() => setBurger(!burger)} to='/products'>Products</LinkRouter>
+            <LinkRouter onClick={() => setBurger(!burger)} to='whymindgrow'>Why MindGrow?</LinkRouter>
           </div>
         }
         <button className="burger-btn" onClick={() => setBurger(!burger)}>
@@ -53,7 +58,11 @@ function Header() {
             modal &&
             <div className="container-sign" onClick={() => setModal(!modal)}>
               {
-                user ? <SignOut />
+                user ? 
+                <>
+                <LinkRouter to={`/profile/${user.id}`}>Profile</LinkRouter>
+                <SignOut />
+                </>
                   :
                   <>
                     <LinkRouter to="/signup">Sign Up</LinkRouter>
