@@ -82,7 +82,7 @@ export default function SignUpForm() {
                 </div>
                 <div className='Form-user-signup'>
                     <button type="submit" >
-                        Submit
+                        Sign Up!
                     </button>
                     <SignUpGoogle />
                 </div>
