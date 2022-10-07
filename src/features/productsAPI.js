@@ -13,7 +13,17 @@ export const productsAPI = createApi({
         getProduct: builder.query({
             query: (id) => `/products/${id}`
         }),
+        getNewProduct: builder.mutation({
+            query(product) {
+                return {
+                    url: "/products",
+                    method: "POST",
+                    body: product,
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                };
+            },
+        }),
     })
 })
 export default productsAPI
-export const { useGetAllProductsQuery, useGetProductQuery } = productsAPI
+export const { useGetAllProductsQuery, useGetProductQuery, useGetNewProductMutation } = productsAPI
