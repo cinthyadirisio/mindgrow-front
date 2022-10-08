@@ -16,6 +16,7 @@ import { setUser } from './features/loggedSlice';
 import BlogDetails from './pages/BlogDetails'
 import CartPage from './pages/CartPage';
 import ProfilePage from './pages/ProfilePage'
+import PaymentSuccess from './pages/PaymentSuccess'
 import ScrollToTop from './components/ScrollToTop';
 import AdminPage from './pages/AdminPage';
 
@@ -47,9 +48,9 @@ function App() {
       verifyToken();
     }
   }, []);
-  useEffect(()=>{
+  useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart))
-  },[cart])
+  }, [cart])
 
   return (
     <BrowserRouter>
@@ -68,8 +69,7 @@ function App() {
           <Route path='/profile/:id' element={<ProfilePage />} />
           <Route path='/*' element={<NotFound />} />
           <Route path='/admindashboard' element={admin ? <AdminPage /> : <NotFound />} />
-
-
+          <Route path='/payment-success' element={<PaymentSuccess />} />
         </Routes>
       </WebsiteLayout>
     </BrowserRouter>
