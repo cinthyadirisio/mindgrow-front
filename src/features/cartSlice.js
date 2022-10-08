@@ -54,9 +54,12 @@ export const cartSlice = createSlice({
         },
         setBill: (state, action) => {
             state.billDetail = action.payload
+        },
+        clear: (state) => {
+            state.productsCart = [];
         }
     }
 })
 
-export const { addProduct, deleteProduct, decrement, increment, setBill } = cartSlice.actions
+export const { addProduct, deleteProduct, decrement, increment, setBill, clear } = cartSlice.actions
 export default cartSlice.reducer
