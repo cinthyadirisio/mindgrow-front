@@ -1,7 +1,10 @@
 import React, { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteProduct, increment, decrement, setBill } from "../../features/cartSlice";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+
+import api_url from '../../api';
+import { deleteProduct, increment, decrement, setBill } from "../../features/cartSlice";
 import "../../styles/Cart.css";
 
 export default function Cart() {
@@ -13,8 +16,26 @@ export default function Cart() {
     const formBill = useRef()
     const billSave = (e) => {
         e.preventDefault()
-        let formData = new FormData(formBill.current)
-        dispatch(setBill(Object.fromEntries(formData)))
+        // let formData = new FormData(formBill.current)
+        // dispatch(setBill(Object.fromEntries(formData)));
+        const payload = {
+            items: products.map(p => ({
+                id: p.id, quantity: p.quantity,
+            })),
+        };
+
+        axios.post(`${api_url}/payments`, payload, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            }
+        }).then(res => {
+            if (res.data.success) {
+                const mercadopagoLink = res.data.url;
+                window.open(mercadopagoLink);
+            } else {
+                console.error('Unexpected backend response', res.data);
+            }
+        }).catch(console.error);
     }
     const billarray = [
         { item: "Name", name: "name", type: "text", id: "bill1" },
@@ -38,7 +59,7 @@ export default function Cart() {
                                 src="https://www.qrcardboard.com/images/cart.gif?v=01"
                                 alt="empty"
                             />
-                            <button className="submit" onClick={()=> navigate('/products', {replace: true})}>Shop</button>
+                            <button className="submit" onClick={() => navigate('/products', { replace: true })}>Shop</button>
                         </>
                     ) : (
                         <form>
