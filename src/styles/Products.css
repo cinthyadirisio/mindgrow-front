@@ -4,7 +4,7 @@
   min-height: 87vh;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 2rem;
   padding: .4rem 2rem 3rem 2rem;
 }
@@ -29,9 +29,10 @@
 }
 
 .cards-container h2 {
-  width: 90%;
+  width: 100%;
   color: #74B49B;
   padding: .5rem;
+  align-self: flex-start;
   border-bottom: 1px solid #74B49B;
 }
 
@@ -114,22 +115,6 @@
   border-radius: 1rem;
   box-shadow: rgba(100, 100, 111, 0.16) 0px 7px 29px 0px;
 }
-.options{
-  position: absolute;
-  top: 0rem;
-  right: 0.1rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-.options img{
-  background: none;
-  width: 1.5rem;
-  padding: 0;
-}
-.options img:hover{
-  background-color: #fffbfb;
-}
 .info {
   width: 100%;
   height: 100%;
@@ -193,24 +178,9 @@
 .price-button svg:hover {
   fill: #f9f8eb;
 } 
-
-.modal-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  min-width: 7rem;
-  height: 8rem;
-  background-color: #f9f8eb;
-  position: absolute;
-  right: 0;
-  border-radius: 0.4rem;
-  gap: 0.5rem;
-  padding: .5rem;
-  box-shadow: 6px 8px 6px -6px rgb(182 182 188);
-}
 .edit-btn {
   border: none;
+  cursor: pointer;
   font-size: 1rem;
   font-weight: 500;
   background-color: transparent;

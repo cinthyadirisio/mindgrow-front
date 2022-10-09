@@ -6,6 +6,7 @@
     border-radius: 50%;
     display: flex;
     justify-content: center;
+    align-self: center;
     align-items: center;
     animation: spin13213 2s linear infinite;
   }

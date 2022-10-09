@@ -105,6 +105,9 @@ table td {
 .second {
   width: 40%;
 }
+.pointer {
+  cursor: pointer;
+}
 
 .quantity {
   padding: 0.2rem 0.5rem;
@@ -168,17 +171,21 @@ label {
   padding: 0.5rem;
 }
 .submit {
-    font-size: 12pt;
+  font-size: 12pt;
   align-self: center;
   margin-top: 3rem;
   padding: 0.5rem 0.5rem;
   background-color: #77628c;
-  border: none;
-  color: #a7d7c5;
+  border: 1px solid #77628c;
+  color: #f9f8eb;
   font-weight: 500;
   border-radius: 1rem;
   cursor: pointer;
   width: 10rem;
+}
+.submit:hover {
+  background-color: #f9f8eb;
+  color: #77628c;
 }
 .notifications {
   width: 100%;
@@ -243,7 +250,7 @@ label {
   width: 60%;
   align-self: center;
   font-weight: 500;
-  box-shadow: 3px 3px 15px 4px rgba(92, 141, 137, 1);
+  box-shadow: 3px 3px 15px 4px rgba(92, 141, 137, 0.526);
 }
 
 .free-shipping p {
