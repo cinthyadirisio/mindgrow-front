@@ -4,27 +4,21 @@ import {useProfileOneMutation} from '../../features/userAPI'
 import '../../styles/Profile.css'
 import ProfileEdit from './ProfileEdit'
 import { useDispatch, useSelector } from 'react-redux' 
-import {reload} from '../../features/reLoadSlice'
 import {setUser} from '../../features/loggedSlice'
 
-export default function Profile(props) {
+export default function Profile() {
 
   const { id } = useParams()
 
   const dispatch = useDispatch()
   const reloadState = useSelector(state => state.reload.reloadState)
   const [userProfile, setUserProfile] = useState({})
-
-
-  // const { data: user } = useProfileOneMutation(id)
-  // const userProfile = user?.response
   const [userRead] = useProfileOneMutation()
   async function readUser(){
     try {
       let res = await userRead(id)
       if (res.data?.success){
         setUserProfile(res.data?.response)
-        dispatch(reload())
         dispatch(setUser(res.data?.response))
       }else {
         console.log(res.error)
@@ -57,7 +51,7 @@ export default function Profile(props) {
         <p>{userProfile?.country}</p>
       </div>
       <div className='button-div'>
-        <button onClick={show} >Edit Your Profile Info</button>
+        <button onClick={show} >Edit your profile info</button>
         {
           showEdit ? (
             <ProfileEdit id={userProfile?.id} name={userProfile?.name} lastName={userProfile?.lastName} photo={userProfile?.photo} mail={userProfile?.mail} country={userProfile?.country} />
