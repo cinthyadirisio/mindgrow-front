@@ -10,16 +10,26 @@ export const productsAPI = createApi({
         getAllProducts: builder.query({
             query: (obj) => `/products?product=${obj.product}&category=${obj.category}&sort=${obj.sort}&subcategory=${obj.subcategory}`
         }),
-        getProduct: builder.query({
-            query: (id) => `/products/${id}`
+        getProduct: builder.mutation({
+            query: (id) => ({
+                url: `/products/${id}`,
+                method: 'GET'
+            })
         }),
         deleteOneProduct: builder.mutation({
-            query: (id) => `/products/${id}`,
-            method: 'DELETE',
-            headers: {Authorization: `Bearer ${localStorage.getItem('token')}` }
+            query: (id) => ({
+                url: `/products/${id}`,
+                method: 'DELETE',
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            })
         }),
         editProduct: builder.mutation({
-            query: (body) => `/products/${body.id}`
+            query: (body) => ({
+                url: `/products/${body._id}`,
+                method: 'PATCH',
+                body: body,
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            })
         }),
         getNewProduct: builder.mutation({
             query(product) {
@@ -31,7 +41,13 @@ export const productsAPI = createApi({
                 };
             },
         }),
+        getAllProductsNoFilter: builder.mutation({
+            query: () => ({
+                url: `/products`,
+                method: 'GET',
+            })
+        }),
     })
 })
 export default productsAPI
-export const { useGetAllProductsQuery, useGetProductQuery, useDeleteOneProductMutation, useEditProductMutation, useGetNewProductMutation } = productsAPI
+export const { useGetAllProductsQuery, useGetProductMutation, useDeleteOneProductMutation, useEditProductMutation, useGetNewProductMutation, useGetAllProductsNoFilterMutation } = productsAPI
