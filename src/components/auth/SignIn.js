@@ -28,7 +28,7 @@ export default function SignIn() {
             from: 'form'
         }
         signInUser(userSignIn).then(response => {
-            if (response.data.success) {
+            if (response.data?.success) {
                 dispatch(setUser(response.data.response.user))
                 localStorage.setItem('token', response.data.response.token)
                 toast("Welcome " + response.data.response.user.name, {
@@ -41,7 +41,7 @@ export default function SignIn() {
                 });
                 navigate("/", { replace: true })
             } else {
-                toast.error(response.data.message,
+                toast.error('Invalid credentials',
                     {
                         icon: "😵",
                         style: {
@@ -51,7 +51,7 @@ export default function SignIn() {
                         },
                     })
             }
-        }).catch(error => console.log(error))
+        }).catch((error) => console.log(error))
     }
     return (
 

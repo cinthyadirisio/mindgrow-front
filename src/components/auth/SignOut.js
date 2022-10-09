@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useSignOutMutation } from '../../features/userAPI'
 import { deleteUser } from '../../features/loggedSlice'
 import toast from "react-hot-toast";
+import { clear } from '../../features/cartSlice'
 export default function SignOut() {
     let user = useSelector((state) => state.logged.user)
     const dispatch = useDispatch()
@@ -15,6 +16,7 @@ export default function SignOut() {
             if (res.data?.success) {
                 dispatch(deleteUser())
                 localStorage.removeItem('token')
+                dispatch(clear())
                 toast(`Come back soon ${user.name}!`, {
                     icon: "😏",
                     style: {
