@@ -1,11 +1,15 @@
 import React from 'react'
 import toast from 'react-hot-toast';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setModalDeleteProduct } from '../../features/modalSlice'
 import { useDeleteOneProductMutation } from '../../features/productsAPI'
+import { setStateProducts } from '../../features/editSlice';
+import { useNavigate } from 'react-router-dom';
 import '../../styles/ModalProduct.css'
 
-export default function DeleteProduct(props) {
+export default function DeleteProduct() {
+    const id = useSelector((state) => state.edit.idDelete)
+    const navigate = useNavigate()
     const dispatch = useDispatch()
     const closeModal = () => {
         dispatch(setModalDeleteProduct())
@@ -13,18 +17,19 @@ export default function DeleteProduct(props) {
     const [deleteOneProduct] = useDeleteOneProductMutation()
     async function deleteProduct() {
         try {
-            let res = await deleteOneProduct(props.id)
+            let res = await deleteOneProduct(id)
             if (res.data?.success) {
-                console.log(props.id)
+                dispatch(setStateProducts())
                 dispatch(setModalDeleteProduct())
-                toast("Delete successfully", {
-                    icon: "😏",
+                toast.success("Delete successfully", {
                     style: {
                         borderRadius: ".5rem",
                         background: "#3f3d56",
                         color: "aliceblue",
                     },
                 });
+                navigate('/products', { replace: true })
+                window.location.reload()
             } else {
                 toast.error("Couldn't be deleted", {
                     icon: "😞",
@@ -38,14 +43,14 @@ export default function DeleteProduct(props) {
         } catch (error) {
             console.log(error)
         }
-    } 
-  return (
-    <div className='modal-open-container'>
-        <p>Are You sure?</p>
-        <div>
-            <button className='cancel-btn' onClick={closeModal}>Cancel</button>
-            <button className='delete-btn' onClick={deleteProduct}>Delete</button>
+    }
+    return (
+        <div className='modal-open-container'>
+            <p>Are you sure?</p>
+            <div>
+                <button className='cancel-btn' onClick={closeModal}>Cancel</button>
+                <button className='submit-btn' onClick={deleteProduct}>Delete</button>
+            </div>
         </div>
-    </div>
-  )
+    )
 }
