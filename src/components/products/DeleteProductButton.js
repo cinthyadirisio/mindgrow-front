@@ -1,13 +1,12 @@
 import React from 'react'
 import '../../styles/Products.css'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch} from 'react-redux'
 import { setModalDeleteProduct } from '../../features/modalSlice'
-
-export default function DeleteProduct() {
+import { setIdDelete } from '../../features/editSlice'
+export default function DeleteProduct({id}) {
     const dispatch = useDispatch()
-    const modalDeleteProduct = useSelector(state => state.modal.modalDeleteProduct)
     const openModal = () => {
-      console.log(modalDeleteProduct)
+      dispatch(setIdDelete(id))
         dispatch(setModalDeleteProduct())
     }
   return (
