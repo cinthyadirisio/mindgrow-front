@@ -1,38 +1,17 @@
-import React, {useState} from "react";
+import React from "react";
 import "../../styles/Products.css";
 import { Link as LinkRouter } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addProduct } from "../../features/cartSlice";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import EditProduct from "./EditProduct";
-import DeleteProductButton from "./DeleteProductButton";
-import DeleteProduct from "./DeleteProduct";
-import Modal from "../Modal";
-import EditFormProduct from "./EditFormProduct";
 export default function ProductCard(props) {
   const navigate = useNavigate();
   const user = useSelector((state) => state.logged.user);
   const dispatch = useDispatch();
-  const [edit, setEdit] = useState(false);
-  const modalEditProduct = useSelector((state) => state.modal.modalEditProduct);
-  const modalDeleteProduct = useSelector(
-    (state) => state.modal.modalDeleteProduct
-  );
-  const id = props.id;
   return (
     <div key={props.id} className="card-p">
-      {user && user.role === "admin" && (
-        <button className="options" onClick={() => setEdit(!edit)}>
-          <img src="/assets/icons/option.png" alt="icon" />
-        </button>
-      )}
-      {edit && (
-        <div className="modal-container">
-          <EditProduct />
-          <DeleteProductButton />
-        </div>
-      )}
+      
       <img src={props.photo} alt="Product" />
       <div className="info">
         <p>{props.category}</p>
@@ -85,16 +64,6 @@ export default function ProductCard(props) {
           </button>
         </div>
       </div>
-      {modalEditProduct && (
-        <Modal>
-          <EditFormProduct id={id} />
-        </Modal>
-      )}
-      {modalDeleteProduct && (
-        <Modal>
-          <DeleteProduct id={id} />
-        </Modal>
-      )}
     </div>
   );
 }
