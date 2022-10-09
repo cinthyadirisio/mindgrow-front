@@ -1,16 +1,16 @@
-import React, { useRef, useState} from 'react'
+import React, { useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { useEditProfileMutation} from '../../features/userAPI'
-
-
-
+import { useEditProfileMutation } from '../../features/userAPI'
+import { reload } from '../../features/reLoadSlice'
+import { useDispatch } from 'react-redux'
+import toast from "react-hot-toast";
 export default function ProfileEdit(props) {
-   const [name, setName] = useState(props.name)
-   const [lastName, setLastName] = useState(props.lastName)
-   const [country, setCountry] = useState(props.country)
-   const [photo, setPhoto] = useState(props.photo)
-   const [mail, setMail] = useState(props.mail)
-   
+    const [name, setName] = useState(props.name)
+    const [lastName, setLastName] = useState(props.lastName)
+    const [country, setCountry] = useState(props.country)
+    const [photo, setPhoto] = useState(props.photo)
+    const [mail, setMail] = useState(props.mail)
+    const dispatch = useDispatch()
     const { id } = useParams()
     const [editProfile] = useEditProfileMutation()
 
@@ -41,15 +41,23 @@ export default function ProfileEdit(props) {
             _id: `${props.id}`,
         }
         editProfile(profileUpdated).then((res) => {
-            console.log(res)
-            console.log(localStorage.getItem('token'))
-            if (res.error) {
-                let dataError = res.error;
-                let dataMessage = dataError.data;
-
+            if (res.data?.success) {
+                dispatch(reload())
+                toast.success(res.data?.message, {
+                    style: {
+                        borderRadius: ".5rem",
+                        background: "#3f3d56",
+                        color: "aliceblue",
+                    },
+                });
             } else {
-                let dataResponse = res.data;
-                let dataSuccess = dataResponse.message;
+                toast.error("Error", {
+                    style: {
+                        borderRadius: ".5rem",
+                        background: "#3f3d56",
+                        color: "aliceblue",
+                    },
+                });
             }
         }).catch((error) => {
             console.log(error)
@@ -62,31 +70,31 @@ export default function ProfileEdit(props) {
             {profileArray.map((e) => {
                 return (
                     <label key={e.id} htmlFor={e.name}> {e.item}
-                        <input onChange={(i)=>{
-                            if(e.name == 'name'){
+                        <input onChange={(i) => {
+                            if (e.name === 'name') {
                                 return setName(i.target.value)
 
-                            }else if(e.name == 'lastName'){
+                            } else if (e.name === 'lastName') {
                                 return setLastName(i.target.value)
 
-                            }else if(e.name == 'country'){
+                            } else if (e.name === 'country') {
                                 return setCountry(i.target.value)
 
-                            }else if(e.name == 'photo'){
+                            } else if (e.name === 'photo') {
                                 return setPhoto(i.target.value)
 
-                            }else{
+                            } else {
                                 return setMail(i.target.value)
 
                             }
                         }
-                        } type="text" name={e.name} ref={e.value} value={e.defaultValue } />
+                        } type="text" name={e.name} ref={e.value} value={e.defaultValue} />
                     </label>
                 );
             })}
             <button className="submit" type="submit ">Edit!</button>
         </form>
-        
+
     )
 
 }
