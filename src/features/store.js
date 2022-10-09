@@ -6,6 +6,7 @@ import publicationsAPI from './publicationsAPI'
 import modalSlice from './modalSlice'
 import cartSlice from './cartSlice'
 import reloadSlice from './reLoadSlice'
+import editSlice from './editSlice'
 export const store = configureStore({
     reducer: {
         [usersAPI.reducerPath]: usersAPI.reducer,
@@ -13,8 +14,8 @@ export const store = configureStore({
         [publicationsAPI.reducerPath]: publicationsAPI.reducer,
         logged: loggedSlice,
         modal: modalSlice,
-        cart:cartSlice,
-        reload:reloadSlice
-
+        cart: cartSlice,
+        reload: reloadSlice,
+        edit: editSlice
     }
 })
