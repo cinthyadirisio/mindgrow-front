@@ -1,14 +1,14 @@
 import React from 'react'
 import '../../styles/Products.css'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setModalEditProduct } from '../../features/modalSlice'
-export default function EditProduct() {
-    const dispatch = useDispatch()
-    const modalEditProduct = useSelector(state => state.modal.modalEditProduct)
-    const openModal = () => {
-      console.log(modalEditProduct)
-        dispatch(setModalEditProduct())
-    }
+import { setIdEdit } from '../../features/editSlice'
+export default function EditProduct({ id }) {
+  const dispatch = useDispatch()
+  const openModal = () => {
+    dispatch(setIdEdit(id))
+    dispatch(setModalEditProduct())
+  }
   return (
     <button className='edit-btn' onClick={openModal}>Edit</button>
   )
