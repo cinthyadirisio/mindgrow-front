@@ -16,7 +16,17 @@ export const publicationsAPI = createApi({
         getOnePublication: builder.query({
             query: (id) => `/publications/${id}`
         }),
+        getNewPublication: builder.mutation({
+            query(publication) {
+                return {
+                    url: "/publications",
+                    method: "POST",
+                    body: publication,
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                };
+            },
+        }),
     })
 })
 export default publicationsAPI
-export const {useGetAllPublicationsQuery, useGetOnePublicationQuery} = publicationsAPI
+export const {useGetAllPublicationsQuery, useGetOnePublicationQuery, useGetNewPublicationMutation} = publicationsAPI
