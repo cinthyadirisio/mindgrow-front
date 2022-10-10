@@ -1,12 +1,12 @@
 import React from 'react'
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
-import apiurl from "../api";
+import api_url from "../api";
 
 
 export const publicationsAPI = createApi({
     reducerPath: 'publicationsAPI',
     baseQuery: fetchBaseQuery({
-        baseUrl: `${apiurl}`
+        baseUrl: `${api_url}`
     }),
     tagTypes: ['Post'],
     endpoints: (builder) => ({
