@@ -165,9 +165,9 @@ export default function NewProduct() {
         formRef4.current.reset();
     }
 
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     const openForm = () => {
-        if(open2 === false && open3 === false && open4 === false){
+        if (open2 === false && open3 === false && open4 === false) {
             if (open === true) {
                 setOpen(false);
             } else {
@@ -177,7 +177,7 @@ export default function NewProduct() {
     };
     const [open2, setOpen2] = useState(false);
     const openForm2 = () => {
-        if(open === false && open3 === false && open4 === false){
+        if (open === false && open3 === false && open4 === false) {
             if (open2 === true) {
                 setOpen2(false);
             } else {
@@ -187,7 +187,7 @@ export default function NewProduct() {
     };
     const [open3, setOpen3] = useState(false);
     const openForm3 = () => {
-        if(open === false && open2 === false && open4 === false){
+        if (open === false && open2 === false && open4 === false) {
             if (open3 === true) {
                 setOpen3(false);
             } else {
@@ -197,7 +197,7 @@ export default function NewProduct() {
     };
     const [open4, setOpen4] = useState(false);
     const openForm4 = () => {
-        if(open === false && open2 === false && open3 === false){
+        if (open === false && open2 === false && open3 === false) {
             if (open4 === true) {
                 setOpen4(false);
             } else {
@@ -211,13 +211,22 @@ export default function NewProduct() {
             <div className="body-new-product">
                 <div className='container-form-new-product'>
                     <form ref={formRef} action="#" className="form-new-product">
-                        <Input label="Name:" name="name" />
-                        <Input label="Category:" name="category" />
-                        <Input label="Subcategory:" name="subcategory" />
-                        <Input label="Description:" name="description" />
-                        <Input label="Price:" name="price" />
-                        <Input label="Stock:" name="stock" />
-                        <Input label="Photo:" name="photo" />
+                        <div className='container-input-new-product'>
+                            <Input label="Name" name="name" />
+                            <Input label="Photo" name="photo" />
+                        </div>
+                        <div className='container-input-new-product'>
+                            <Input label="Price" name="price" />
+                            <Input label="Stock" name="stock" />
+                        </div>
+                        <div className='container-input-new-product'>
+                            <Input label="Category" name="category" />
+                            <Input label="Subcategory" name="subcategory" />
+                        </div>
+                        <label className="form-label-new-product">
+                            Description
+                            <textarea className="text-tarea" name="description" />
+                        </label>
                         <button type="submit" onClick={handleSubmit}> Add product </button>
                     </form>
                     <Toaster />
@@ -230,13 +239,22 @@ export default function NewProduct() {
             <div className="body-new-product">
                 <div className='container-form-new-product'>
                     <form ref={formRef2} action="#" className="form-new-product">
-                        <Input label="Name:" name="name" />
-                        <Input label="Category:" name="category" />
-                        <Input label="Subcategory:" name="subcategory" />
-                        <Input label="Description:" name="description" />
-                        <Input label="Price:" name="price" />
-                        <Input label="Stock:" name="stock" />
-                        <Input label="Photo:" name="photo" />
+                        <div className='container-input-new-product'>
+                            <Input label="Name" name="name" />
+                            <Input label="Photo" name="photo" />
+                        </div>
+                        <div className='container-input-new-product'>
+                            <Input label="Price" name="price" />
+                            <Input label="Stock" name="stock" />
+                        </div>
+                        <div className='container-input-new-product'>
+                            <Input label="Category" name="category" />
+                            <Input label="Subcategory" name="subcategory" />
+                        </div>
+                        <label className="form-label-new-product">
+                            Description
+                            <textarea className="text-tarea" name="description" />
+                        </label>
                         <button type="submit" onClick={handleSubmit2}> Add product </button>
                     </form>
                     <Toaster />
@@ -249,13 +267,22 @@ export default function NewProduct() {
             <div className="body-new-product">
                 <div className='container-form-new-product'>
                     <form ref={formRef3} action="#" className="form-new-product">
-                        <Input label="Name:" name="name" />
-                        <Input label="Category:" name="category" />
-                        <Input label="Subcategory:" name="subcategory" />
-                        <Input label="Description:" name="description" />
-                        <Input label="Price:" name="price" />
-                        <Input label="Stock:" name="stock" />
-                        <Input label="Photo:" name="photo" />
+                        <div className='container-input-new-product'>
+                            <Input label="Name" name="name" />
+                            <Input label="Photo" name="photo" />
+                        </div>
+                        <div className='container-input-new-product'>
+                            <Input label="Price" name="price" />
+                            <Input label="Stock" name="stock" />
+                        </div>
+                        <div className='container-input-new-product'>
+                            <Input label="Category" name="category" />
+                            <Input label="Subcategory" name="subcategory" />
+                        </div>
+                        <label className="form-label-new-product">
+                            Description
+                            <textarea className="text-tarea" name="description" />
+                        </label>
                         <button type="submit" onClick={handleSubmit3}> Add product </button>
                     </form>
                     <Toaster />
@@ -268,13 +295,22 @@ export default function NewProduct() {
             <div className="body-new-product">
                 <div className='container-form-new-product'>
                     <form ref={formRef4} action="#" className="form-new-product">
-                        <Input label="Name:" name="name" />
-                        <Input label="Category:" name="category" />
-                        <Input label="Subcategory:" name="subcategory" />
-                        <Input label="Description:" name="description" />
-                        <Input label="Price:" name="price" />
-                        <Input label="Stock:" name="stock" />
-                        <Input label="Photo:" name="photo" />
+                        <div className='container-input-new-product'>
+                            <Input label="Name" name="name" />
+                            <Input label="Photo" name="photo" />
+                        </div>
+                        <div className='container-input-new-product'>
+                            <Input label="Price" name="price" />
+                            <Input label="Stock" name="stock" />
+                        </div>
+                        <div className='container-input-new-product'>
+                            <Input label="Category" name="category" />
+                            <Input label="Subcategory" name="subcategory" />
+                        </div>
+                        <label className="form-label-new-product">
+                            Description
+                            <textarea className="text-tarea" name="description" />
+                        </label>
                         <button type="submit" onClick={handleSubmit4}> Add product </button>
                     </form>
                     <Toaster />
@@ -286,44 +322,46 @@ export default function NewProduct() {
     return (
         <div className="container-grandfather-new-product">
             <div className="title-new-product">
-                <h3>Create new Products</h3>
+                <h2>Create new Products</h2>
             </div>
-                <div className="title-new-product-select">
-                    <h4>Select the number of products</h4>
+            <div className="title-new-product-select">
+                <h4>Select the number of products</h4>
+            </div>
+            <div className="container-dad-new-product">
+                <div className="btn-select">
+                    <button type="submit" onClick={openForm}> 1 </button>
+                    <button type="submit" onClick={openForm2}> 2 </button>
+                    <button type="submit" onClick={openForm3}> 3 </button>
+                    <button type="submit" onClick={openForm4}> 4 </button>
                 </div>
-                <div className="container-dad-new-product">
-                    <div className="btn-select">
-                        <button type="submit" onClick={openForm}> 1 </button>
-                        <button type="submit" onClick={openForm2}> 2 </button>
-                        <button type="submit" onClick={openForm3}> 3 </button>
-                        <button type="submit" onClick={openForm4}> 4 </button>
-                    </div>
-                    <div className="container-forms-new-product">
-                        {open ? (
+                <div className="container-forms-new-product">
+                    {open ? (
+                        <div className='form-children-new-product'>
                             <Form />
-                        ) : null}
-                        {open2 ? (
-                            <div className='form-children-new-product'>
-                                <Form />
-                                <Form2 />
-                            </div>
-                        ) : null}
-                        {open3 ? (
-                            <div className='form-children-new-product'>
-                                <Form />
-                                <Form2 />
-                                <Form3 />
-                            </div>
-                        ) : null}
-                        {open4 ? (
-                            <div className='form-children-new-product'>
-                                <Form />
-                                <Form2 />
-                                <Form3 />
-                                <Form4 />
-                            </div>
-                        ) : null}
-                    </div>
+                        </div>
+                    ) : null}
+                    {open2 ? (
+                        <div className='form-children-new-product'>
+                            <Form />
+                            <Form2 />
+                        </div>
+                    ) : null}
+                    {open3 ? (
+                        <div className='form-children-new-product'>
+                            <Form />
+                            <Form2 />
+                            <Form3 />
+                        </div>
+                    ) : null}
+                    {open4 ? (
+                        <div className='form-children-new-product'>
+                            <Form />
+                            <Form2 />
+                            <Form3 />
+                            <Form4 />
+                        </div>
+                    ) : null}
+                </div>
             </div>
         </div>
     );
