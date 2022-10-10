@@ -28,9 +28,9 @@ function Header() {
         <LinkRouter to='/products'>Products</LinkRouter>
         <LinkRouter to='whymindgrow'>Why MindGrow?</LinkRouter>
         {user ?
-        <LinkRouter to='/adminpanel'>Admin Panel</LinkRouter>
-        : null
-            }
+          <LinkRouter to='/adminpanel'>Admin Panel</LinkRouter>
+          : null
+        }
       </div>
       <div className="header-info">
         {
@@ -40,6 +40,10 @@ function Header() {
             <LinkRouter onClick={() => setBurger(!burger)} to='/' >Home</LinkRouter>
             <LinkRouter onClick={() => setBurger(!burger)} to='/products'>Products</LinkRouter>
             <LinkRouter onClick={() => setBurger(!burger)} to='whymindgrow'>Why MindGrow?</LinkRouter>
+            {user ?
+              <LinkRouter onClick={() => setBurger(!burger)} to='/adminpanel'>Admin Panel</LinkRouter>
+              : null
+            }
           </div>
         }
         <button className="burger-btn" onClick={() => setBurger(!burger)}>
@@ -62,11 +66,11 @@ function Header() {
             modal &&
             <div className="container-sign" onClick={() => setModal(!modal)}>
               {
-                user ? 
-                <>
-                <LinkRouter to={`/profile/${user.id}`}>Profile</LinkRouter>
-                <SignOut />
-                </>
+                user ?
+                  <>
+                    <LinkRouter to={`/profile/${user.id}`}>Profile</LinkRouter>
+                    <SignOut />
+                  </>
                   :
                   <>
                     <LinkRouter to="/signup">Sign Up</LinkRouter>
