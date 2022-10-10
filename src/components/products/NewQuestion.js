@@ -27,6 +27,14 @@ export default function NewQuestion({ id }) {
                         color: "aliceblue",
                     },
                 });
+            }else{
+                toast.error("Length must be at least 4 characters long", {
+                    style: {
+                        borderRadius: ".5rem",
+                        background: "#3f3d56",
+                        color: "aliceblue",
+                    },
+                });
             }
         } catch (error) {
             console.log(error)
