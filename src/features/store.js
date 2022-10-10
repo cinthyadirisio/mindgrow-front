@@ -12,12 +12,12 @@ export const store = configureStore({
     reducer: {
         [usersAPI.reducerPath]: usersAPI.reducer,
         [productsAPI.reducerPath]: productsAPI.reducer,
-        [publicationsAPI.reducerPath]: publicationsAPI.reducer,
         [questionsAnswersAPI.reducerPath]: questionsAnswersAPI.reducer,
         logged: loggedSlice,
         modal: modalSlice,
         cart: cartSlice,
         reload: reloadSlice,
-        edit: editSlice
+        edit: editSlice,
+        [publicationsAPI.reducerPath]: publicationsAPI.reducer,
     }
 })
