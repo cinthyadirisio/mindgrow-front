@@ -180,6 +180,7 @@
   border: 1px solid #5c8d89;
   border-radius: 1rem;
   padding: .6rem;
+  outline-color: #77628c;
 }
 .form-question button{
   margin-bottom: .4rem;
