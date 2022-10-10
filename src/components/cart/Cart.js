@@ -98,7 +98,7 @@ export default function Cart() {
                                                             </svg>
                                                         </button>
                                                     </td>
-                                                    <td className="second">
+                                                    <td className="second pointer" onClick={() => navigate('/products/'+p.id, {replace: true})}>
                                                         <img src={p.photo} alt="" />
                                                         <p>{p.name} </p>
                                                     </td>
@@ -142,7 +142,7 @@ export default function Cart() {
                                                             </svg>
                                                         </button>
                                                     </td>
-                                                    <td className="third">${p.quantity * p.price}</td>
+                                                    <td className="third">${(p.quantity * p.price).toFixed(2)}</td>
                                                 </tr>
                                                 <div className="tableLine"></div>
                                             </>

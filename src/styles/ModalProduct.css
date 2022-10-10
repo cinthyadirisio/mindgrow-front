@@ -18,17 +18,29 @@
 }
 
 .cancel-btn {
-    background-color: rgb(255, 66, 66);
+    background-color: rgb(253, 93, 93);
 }
 
-.delete-btn {
+.submit-btn {
     background-color: #74B49B;
 }
 
-.cancel-btn, .delete-btn {
+.cancel-btn, .submit-btn {
+    cursor: pointer;
     border: none;
     font-size: 1rem;
     font-weight: 500;
     padding: .3rem .5rem;
     border-radius: .3rem;
+}
+.cancel-btn:hover{
+    background-color: rgb(240, 65, 65);
+}
+.submit-btn:hover {
+    background-color: #67a48d;
+}
+@media screen and (min-width: 768px ){
+    .modal-open-container{
+        width: 40%;
+    }
 }

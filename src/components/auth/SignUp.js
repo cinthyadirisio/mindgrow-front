@@ -1,6 +1,4 @@
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setUser } from "../../features/loggedSlice";
 import { useSignUpMutation } from "../../features/userAPI";
 import { useRef } from "react";
 import toast, { Toaster } from 'react-hot-toast';
@@ -19,7 +17,6 @@ function Input({ label, name, type }) {
 }
 
 export default function SignUpForm() {
-    const dispatch = useDispatch();
     const navigate = useNavigate();
     const form = useRef();
     const [newUser] = useSignUpMutation();
@@ -38,8 +35,7 @@ export default function SignUpForm() {
             role: "user"
         };
         newUser(formUser).then(response => {
-            if (response.data.success) {
-                dispatch(setUser(response.data.response.user))
+            if (response.data?.success) {
                 toast("It has been successfully registered", {
                     icon: "😏",
                     style: {
