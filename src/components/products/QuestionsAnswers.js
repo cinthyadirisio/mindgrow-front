@@ -35,7 +35,7 @@ export default function QuestionsAnswers() {
                 {
                     questions.map((item) => {
                         return (
-                            <Question key={Math.random().toString(12).substring(0)} id={item._id} question={item?.question} />
+                            <Question key={Math.random().toString(12).substring(0)} id={item._id} user={item.user} question={item?.question} />
                         )
                     })
                 }
