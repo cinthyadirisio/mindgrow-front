@@ -37,7 +37,21 @@ export const questionsAnswersAPI = createApi({
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             })
         }),
+        deleteAnswer: builder.mutation({
+            query: (id) => ({
+                url: `/answers/${id}`,
+                method: "DELETE",
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            })
+        }),
+        deleteQuestion: builder.mutation({
+            query: (id) => ({
+                url: `/questions/${id}`,
+                method: "DELETE",
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            })
+        }),
     })
 })
 export default questionsAnswersAPI
-export const {useGetAnswerMutation, useNewQuestionMutation, useGetAllQuestionsMutation, useNewAnswerMutation} = questionsAnswersAPI
+export const {useGetAnswerMutation, useNewQuestionMutation, useGetAllQuestionsMutation, useNewAnswerMutation, useDeleteAnswerMutation, useDeleteQuestionMutation} = questionsAnswersAPI
