@@ -7,11 +7,13 @@ import modalSlice from './modalSlice'
 import cartSlice from './cartSlice'
 import reloadSlice from './reLoadSlice'
 import editSlice from './editSlice'
+import questionsAnswersAPI from './questionsAnswersAPI'
 export const store = configureStore({
     reducer: {
         [usersAPI.reducerPath]: usersAPI.reducer,
         [productsAPI.reducerPath]: productsAPI.reducer,
         [publicationsAPI.reducerPath]: publicationsAPI.reducer,
+        [questionsAnswersAPI.reducerPath]: questionsAnswersAPI.reducer,
         logged: loggedSlice,
         modal: modalSlice,
         cart: cartSlice,
