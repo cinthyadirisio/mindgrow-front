@@ -11,7 +11,7 @@ function CarouselCategory() {
     const { data, isLoading } = useGetAllPublicationsQuery({ category: category })
     const publications = data?.response
 
-console.log(category)
+console.log(data)
     return (
 
         <>

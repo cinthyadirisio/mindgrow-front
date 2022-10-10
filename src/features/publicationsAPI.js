@@ -1,12 +1,12 @@
 import React from 'react'
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
-import apiurl from "../api";
+import api_url from "../api";
 
 
 export const publicationsAPI = createApi({
     reducerPath: 'publicationsAPI',
     baseQuery: fetchBaseQuery({
-        baseUrl: `${apiurl}`
+        baseUrl: `${api_url}`
     }),
     tagTypes: ['Post'],
     endpoints: (builder) => ({
@@ -16,7 +16,17 @@ export const publicationsAPI = createApi({
         getOnePublication: builder.query({
             query: (id) => `/publications/${id}`
         }),
+        getNewPublication: builder.mutation({
+            query(publication) {
+                return {
+                    url: "/publications",
+                    method: "POST",
+                    body: publication,
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                };
+            },
+        }),
     })
 })
 export default publicationsAPI
-export const {useGetAllPublicationsQuery, useGetOnePublicationQuery} = publicationsAPI
+export const {useGetAllPublicationsQuery, useGetOnePublicationQuery, useGetNewPublicationMutation} = publicationsAPI
