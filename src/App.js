@@ -68,7 +68,7 @@ function App() {
           <Route path='/cart' element={<CartPage />} />
           <Route path='/profile/:id' element={<ProfilePage />} />
           <Route path='/*' element={<NotFound />} />
-          <Route path='/admindashboard' element={admin ? <AdminPage /> : <NotFound />} />
+          <Route path='/adminpanel' element={admin ? <AdminPage /> : <NotFound />} />
           <Route path='/payment-success' element={<PaymentSuccess />} />
         </Routes>
       </WebsiteLayout>
