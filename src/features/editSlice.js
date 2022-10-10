@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const editSlice = createSlice({
   name: "edit",
-  initialState: { idEdit: "", idDelete: "", stateProducts: false },
+  initialState: { idEdit: "", idDelete: "", stateProducts: false, idDeleteQuestion: "", idDeleteAnswer: "" },
   reducers: {
     setIdEdit: (state, action) => {
       state.idEdit = action.payload;
@@ -12,10 +12,16 @@ export const editSlice = createSlice({
     },
     setStateProducts: (state) => {
       state.stateProducts = !state.stateProducts
+    },
+    setIdDeleteQuestion: (state, action) => {
+      state.idDeleteQuestion = action.payload;
+    },
+    setIdDeleteAnswer: (state, action) => {
+      state.idDeleteAnswer = action.payload;
     }
   },
 });
 
-export const { setIdEdit, setIdDelete, setStateProducts} = editSlice.actions
+export const { setIdEdit, setIdDelete, setStateProducts, setIdDeleteQuestion, setIdDeleteAnswer} = editSlice.actions
 
 export default editSlice.reducer
