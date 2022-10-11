@@ -68,7 +68,8 @@ export default function NewPublication({ handleRefetch }) {
             setOpen(true);
         }
     };
-    if (token) {
+  
+    if (token && user.role === "admin") {
         return (
             <div className="container-dad-publication">
                 <div className="container-header-new-publication">
