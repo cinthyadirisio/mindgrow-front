@@ -14,11 +14,13 @@ function Input({ label, name }) {
 }
 
 export default function NewPublication({ handleRefetch }) {
-    const [newPublication] = useGetNewPublicationMutation()
+
+    const user = useSelector((state) => state.logged.user);
+    const admin = user?.role === 'admin';
+
+    const [newPublication] = useGetNewPublicationMutation();
     const formPublication = useRef();
     const year = new Date().getFullYear().toString();
-    console.log(year)
-    const user = useSelector((state) => state.logged.user);
     const token = localStorage.getItem("token");
 
     const handleSubmit = async (event) => {
@@ -68,8 +70,8 @@ export default function NewPublication({ handleRefetch }) {
             setOpen(true);
         }
     };
-  
-    if (token && user.role === "admin") {
+    
+    if (admin && token) {
         return (
             <div className="container-dad-publication">
                 <div className="container-header-new-publication">
