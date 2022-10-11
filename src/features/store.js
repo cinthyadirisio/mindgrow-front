@@ -12,7 +12,6 @@ export const store = configureStore({
     reducer: {
         [usersAPI.reducerPath]: usersAPI.reducer,
         [productsAPI.reducerPath]: productsAPI.reducer,
-      
         [questionsAnswersAPI.reducerPath]: questionsAnswersAPI.reducer,
         logged: loggedSlice,
         modal: modalSlice,

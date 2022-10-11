@@ -5,7 +5,6 @@ import '../../styles/NewPublication.css'
 import toast, { Toaster } from 'react-hot-toast';
 
 function Input({ label, name }) {
-
     return (
         <label>
             {label}
@@ -21,8 +20,6 @@ export default function NewPublication({ handleRefetch }) {
     console.log(year)
     const user = useSelector((state) => state.logged.user);
     const token = localStorage.getItem("token");
-
-    console.log(user)
 
     const handleSubmit = async (event) => {
         event.preventDefault();
