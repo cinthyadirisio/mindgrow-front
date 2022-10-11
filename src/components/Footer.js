@@ -61,6 +61,7 @@ export default function Footer() {
             </div>
         )}
         <Toaster />
+
     </div>
     
   )

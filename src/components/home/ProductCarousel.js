@@ -22,6 +22,10 @@ const ProductCarousel = () => (
         <img src="https://cdn-prod.medicalnewstoday.com/content/images/articles/327/327420/picture-of-cannabis-cookies.jpg" alt="edibles" />
         <h3 className='carousel-title'>Edibles</h3>
       </div>
+      <div className='carousel-div'>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBq2MM9P81IBn0Lg8qL_AHGHVx3TFj-T_43w&usqp=CAU" alt="pets" />
+        <h3 className='carousel-title'>Pets</h3>
+      </div>
     </Carousel>
   </div>
 );

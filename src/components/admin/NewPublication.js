@@ -70,6 +70,7 @@ export default function NewPublication({ handleRefetch }) {
             setOpen(true);
         }
     };
+    
     if (admin && token) {
         return (
             <div className="container-dad-publication">

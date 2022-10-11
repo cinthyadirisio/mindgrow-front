@@ -51,11 +51,18 @@
 }
 
 .text-tarea{
+<<<<<<< HEAD
+    height: 7rem;
+    border-radius: 1rem;
+    border: none;
+    padding: 5px 12px 5px 12px;
+=======
     height: 7rem !important;
     border-radius: 1rem !important;
     border: none !important;
     padding: 5px 12px 5px 12px !important;
     width: 100% !important;
+>>>>>>> 982952f3f696bc417a1034bb3c1a1ec1ad488bda
 }
 
 .btn-new-publication{
@@ -103,6 +110,10 @@
 
 @media screen and (max-width: 768px) {
     .container-dad-publication{
+<<<<<<< HEAD
+        width: 98%;
+=======
         width: 98% !important;
+>>>>>>> 982952f3f696bc417a1034bb3c1a1ec1ad488bda
     }
 }
