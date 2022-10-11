@@ -243,7 +243,9 @@ ul{
     gap: 1rem;
     background-color: #74b49bb4;
     border-radius: 1rem;
-    padding: 2rem
+    padding: 2rem;
+    display: flex; 
+    flex-direction: column;
 }
 .detailBlog img{
     border-radius: 1rem;

@@ -1,5 +1,5 @@
 import React from 'react'
-import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import api_url from "../api";
 
 
@@ -26,7 +26,30 @@ export const publicationsAPI = createApi({
                 };
             },
         }),
+        deletePublication: builder.mutation({
+            query(id) {
+                return {
+                    url: "/publications/" + id,
+                    method: "DELETE",
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                };
+            },
+        }),
+        editPublication: builder.mutation({
+            query: (body) => ({
+                url: `/publications/${body._id}`,
+                method: 'PATCH',
+                body: body,
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            })
+        }),
+        getPublication: builder.mutation({
+            query: (id) => ({
+                url: `/publications/${id}`,
+                method: 'GET'
+            })
+        }),
     })
 })
 export default publicationsAPI
-export const {useGetAllPublicationsQuery, useGetOnePublicationQuery, useGetNewPublicationMutation} = publicationsAPI
+export const { useGetAllPublicationsQuery, useGetOnePublicationQuery, useGetNewPublicationMutation, useDeletePublicationMutation, useEditPublicationMutation, useGetPublicationMutation } = publicationsAPI

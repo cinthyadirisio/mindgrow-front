@@ -6,7 +6,9 @@ export const modalSlice = createSlice({
         modalEditProduct: false,
         modalDeleteProduct: false,
         modalDeleteQuestion:false,
-        modalDeleteAnswer:false
+        modalDeleteAnswer:false,
+        modalEditPublication: false,
+        modalDeletePublication: false
     },
     reducers: {
         setModalEditProduct: (state) => {
@@ -20,11 +22,17 @@ export const modalSlice = createSlice({
         },
         setModalDeleteQuestion: (state) => {
             state.modalDeleteQuestion = !state.modalDeleteQuestion
-        }
+        },
+        setModalEditPublication: (state) => {
+            state.modalEditPublication = !state.modalEditPublication
+        },
+        setModalDeletePublication: (state) => {
+            state.modalDeletePublication = !state.modalDeletePublication
+        },
     },
 
 })
 
-export const { setModalEditProduct, setModalDeleteProduct, setModalDeleteAnswer, setModalDeleteQuestion } = modalSlice.actions
+export const { setModalEditProduct, setModalDeleteProduct, setModalDeleteAnswer, setModalDeleteQuestion, setModalEditPublication, setModalDeletePublication } = modalSlice.actions
 
 export default modalSlice.reducer
