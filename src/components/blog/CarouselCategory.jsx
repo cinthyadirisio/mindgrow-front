@@ -16,17 +16,13 @@ function CarouselCategory() {
     function handleRefetch() {
         setReload(!reload)
     }
-    console.log(reload);
     useEffect(() => {
         refetch()
     }, [reload])
-
-    console.log(category)
     return (
 
         <>
             <div class="hero-unit">
-
                 <div class="large-12 columns">
                     <ul class="small-block-grid-2 medium-block-grid-3 flip-cards">
                         <li>
@@ -66,17 +62,6 @@ function CarouselCategory() {
                 </div>
             </div>
             <NewPublication handleRefetch={handleRefetch} />
-            {/* <div className='filters'>
-                <div className='selects'>
-                    <select onChange={(e) => setCategory(e.target.value)}>
-                        <option value=''>Categories</option>
-                        <option value='Health'>Health</option>
-                        <option value='Pets'>Pets</option>
-                        <option value='Social Impact'>Social Impact</option>
-                    </select>
-                </div>
-            </div> */}
-
             <div className='cards-container'>
                 {
                     publications?.map((item) => <BlogCards item={item} handleRefetch={handleRefetch} />)

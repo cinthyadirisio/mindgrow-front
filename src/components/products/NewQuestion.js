@@ -9,6 +9,7 @@ export default function NewQuestion({ id }) {
     const [newQuestion] = useNewQuestionMutation()
     const dispatch = useDispatch()
     const input = useRef()
+    const form = useRef()
     async function sendQuestion(e) {
         e.preventDefault()
         const body = {
@@ -27,6 +28,7 @@ export default function NewQuestion({ id }) {
                         color: "aliceblue",
                     },
                 });
+                form.current.reset()
             }else{
                 toast.error("Length must be at least 4 characters long", {
                     style: {
@@ -41,10 +43,10 @@ export default function NewQuestion({ id }) {
         }
     }
     return (
-        <form className='form-question' onSubmit={sendQuestion}>
-            <label>
+        <form className='form-question' onSubmit={sendQuestion} ref={form}>
+            <label className='question-label'>
                 Ask the seller
-                <input type="text" minLength='3' maxLength='300' name="question" placeholder='Write your question...' ref={input} />
+                <input type="text" minLength='3' maxLength='300' name="question" required placeholder='Write your question...' ref={input} />
             </label>
             <button type="submit">Ask</button>
         </form>
