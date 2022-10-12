@@ -25,14 +25,13 @@
     display: flex;
     flex-direction: column;
     padding: .5rem;
-    border: 1px solid white;
-    border-radius: 15pt;
     width: 94%;
     height: 94%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 3% 4%;
+    gap: .5rem;
 }
 
 .span-front svg {
@@ -91,30 +90,29 @@ ul{
 
 /* 1card */
 .flip-cards li:first-child>.button {
-    background-color: rgba(40, 57, 77, 0.8);
+    border-radius: .8rem;
+    background-color: rgba(40, 57, 77, 0.93);
 }
-
-.flip-cards li:first-child>.panel {
-    background-color: rgba(40, 57, 77, 1);
+.flip-cards li:first-child>.button:hover {
+    box-shadow: 6px 8px 6px -6px rgb(142, 142, 146);
 }
 
 /* 2card */
 .flip-cards li:nth-child(2)>.button {
-    background-color: rgba(109, 193, 202, 0.8);
+    border-radius: .8rem;
+    background-color: rgba(65, 175, 187, 0.879)
 }
-
-.flip-cards li:nth-child(2)>.panel {
-    background-color: rgba(109, 193, 202, 1);
+.flip-cards li:nth-child(2)>.button:hover {
+    box-shadow: 6px 8px 6px -6px rgb(142, 142, 146);
 }
 
 /* 3card */
 .flip-cards li:last-child>.button {
-    background-color: rgba(100, 66, 87, 0.8);
+    border-radius: .8rem;
+    background-color: rgba(100, 66, 87, 0.933);
 }
-
-.flip-cards li:last-child>.panel {
-    background-color: rgba(100, 66, 87, 1);
-    color: white;
+.flip-cards li:last-child>.button:hover {
+    box-shadow: 6px 8px 6px -6px rgb(142, 142, 146);
 }
 
 /*RESPONSIVE*/
@@ -147,7 +145,7 @@ ul{
     background-color: #74b49be0;
     padding: 1.5rem;
     margin: 1rem 5%;
-    border-radius: 30pt;
+    border-radius: .8rem;
     gap: .5rem;
     justify-self: center;
 
@@ -157,6 +155,13 @@ ul{
     font-size: 30pt;
     color: #F9F8EB;
     text-shadow: 5px 5px #74B49B;
+}
+
+.mission-Container p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+    text-align: center;
 }
 
 .cat-title{
@@ -239,20 +244,29 @@ ul{
     padding: 2rem;
 }
 .detailBlog{
+    display: flex;
+    flex-direction: column;
     width: 100%;
     gap: 1rem;
     background-color: #74b49bb4;
-    border-radius: 1rem;
+    border-radius: .7rem;
     padding: 2rem
 }
 .detailBlog img{
-    border-radius: 1rem;
+    border-radius: .6rem;
     width: 100%;
     height:20rem;
     object-fit: cover;
     background-position: 50%;
     border: 1px solid #F9F8EB;
 }
+
+.info-blog {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 .info-p{
     margin-top: 3rem;
     display: flex;
@@ -266,38 +280,42 @@ ul{
     padding: 1.5rem 0rem;
 }
 .category-d{
-    text-align: center;
-    width: fit-content;
-    background-color: #77628c;
-    color: #F9F8EB;
-    padding: .5rem;
-    border-radius: 5pt;
-    border: 1px solid #F9F8EB;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #654881;
+    border: 1px solid #f9f8eb00;
 }
+
+.date-d {
+    font-size: 1rem;
+}
+
 .title-d{
     font-size: 15pt;
     font-weight: 600;
 }
 .description-d{
-    font-size: 13pt;
+    font-size: 1rem;
+    font-weight: 500;
 }
 .url-d{
-    background-color: #F9F8EB;
     padding: 1rem;
-    border-radius: 1rem;
+    font-size: 1rem;
+    word-break: break-all;
     text-align: center;
-    margin-bottom: 2rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    border-radius: .3rem;
+    background-color: #F9F8EB;
 }
 .linkto{
-    background-color: hsl(157, 30%, 58%);
-    padding: 1rem;
-    font-size: 1.5rem;
-    margin-top: 2rem;
+    background-color: hsl(157, 33%, 52%);
+    padding: .5rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
     color: #F9F8EB;
-    border-radius: 1rem;
+    border-radius: .3rem;
     align-self: center;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
-
+.linkto:hover {
+    color: #F9F8EB;
+}

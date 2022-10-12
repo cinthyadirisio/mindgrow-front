@@ -52,7 +52,7 @@
 .info-p .description {
   background-color: #a7d7c567;
   padding: 1rem;
-  border-radius: 1rem;
+  border-radius: .8rem;
 }
 .info-p a {
   text-decoration: none;
@@ -61,7 +61,7 @@
   background-color: #5c8d89;
   color: #f9f8eb;
   align-self: center;
-  border-radius: 10pt;
+  border-radius: .6rem;
   box-shadow: rgba(110, 109, 109, 0.19) 0px 10px 20px,
     rgba(55, 55, 55, 0.23) 0px 6px 6px;
 }
@@ -97,7 +97,7 @@
   background-color: #77628c;
   font-weight: 500;
   padding: 0.4rem 1.5rem;
-  border-radius: 1rem;
+  border-radius: .6rem;
   color: #f9f8eb;
   border: 1px solid #77628c;
   cursor: pointer;
