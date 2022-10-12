@@ -56,6 +56,8 @@
 }
 .info-p a {
   text-decoration: none;
+  margin-top: 3rem;
+  font-size: 1.1rem;
   font-weight: 500;
   padding: 0.4rem 1.5rem;
   background-color: #5c8d89;
