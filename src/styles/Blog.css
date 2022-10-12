@@ -90,7 +90,7 @@ ul {
 /* 1card */
 .flip-cards li:first-child > .button {
   border-radius: 0.8rem;
-  background-color: rgba(40, 57, 77, 0.93);
+  background-color: #5c8d89;
 }
 .flip-cards li:first-child > .button:hover {
   box-shadow: 6px 8px 6px -6px rgb(142, 142, 146);
@@ -108,7 +108,7 @@ ul {
 /* 3card */
 .flip-cards li:last-child > .button {
   border-radius: 0.8rem;
-  background-color: rgba(100, 66, 87, 0.933);
+  background-color: #77628C;
 }
 .flip-cards li:last-child > .button:hover {
   box-shadow: 6px 8px 6px -6px rgb(142, 142, 146);
