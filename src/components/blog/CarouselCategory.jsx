@@ -79,7 +79,7 @@ function CarouselCategory() {
 
             <div className='cards-container'>
                 {
-                    publications?.map((item) => <BlogCards id={item._id} title={item.title} category={item.category} photo={item.photo} date={item.date} />)
+                    publications?.map((item) => <BlogCards item={item} handleRefetch={handleRefetch} />)
                 }
                 {
                     publications?.length === 0 && <p>No results</p>

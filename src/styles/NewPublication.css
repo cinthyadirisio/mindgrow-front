@@ -51,6 +51,10 @@
 }
 
 .text-tarea{
+    height: 7rem;
+    border-radius: 1rem;
+    border: none;
+    padding: 5px 12px 5px 12px;
     height: 7rem !important;
     border-radius: 1rem !important;
     border: none !important;
@@ -103,6 +107,7 @@
 
 @media screen and (max-width: 768px) {
     .container-dad-publication{
+        width: 98%;
         width: 98% !important;
     }
 }

@@ -13,6 +13,9 @@ export const editSlice = createSlice({
     setStateProducts: (state) => {
       state.stateProducts = !state.stateProducts
     },
+    setStatePublications: (state) => {
+      state.statePublications = !state.statePublications
+    },
     setIdDeleteQuestion: (state, action) => {
       state.idDeleteQuestion = action.payload;
     },
@@ -22,6 +25,6 @@ export const editSlice = createSlice({
   },
 });
 
-export const { setIdEdit, setIdDelete, setStateProducts, setIdDeleteQuestion, setIdDeleteAnswer} = editSlice.actions
+export const { setIdEdit, setIdDelete, setStateProducts, setIdDeleteQuestion, setIdDeleteAnswer, setStatePublications } = editSlice.actions
 
 export default editSlice.reducer
