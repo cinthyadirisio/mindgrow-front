@@ -18,6 +18,7 @@
 .header-links {
   display: flex;
   gap: 4rem;
+  padding-left: 2rem;
 }
 
 .header-links a {
@@ -72,7 +73,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .logo-title img {
@@ -239,28 +240,28 @@
   padding: .2rem;
   border-radius: 50%;
 }
-@media screen and (max-width: 1024px) {
-  .header-links {
-    gap: 1rem;
-  }
-  .header-container {
-    padding: 2rem 3rem;
-  }
-}
 
-@media screen and (max-width: 900px) {
-  .logo-title h2 {
-    display: none;
-  }
-
-  .logo-title img {
-    height: 4rem;
-  }
+@media screen and (max-width: 1180px) {
   .burger-btn {
     display: inline;
   }
   .header-links {
+    gap: 1rem;
+  }
+  .header-links {
     display: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .logo-title h2 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .logo-title img {
+    height: 4rem;
   }
   .header-burger {
     display: flex;

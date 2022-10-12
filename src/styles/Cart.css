@@ -13,6 +13,7 @@
   flex-wrap: wrap;
   padding: 1.5rem;
   font-size: 8pt;
+  gap: 1rem;
 }
 
 .cart-container h2 {
@@ -32,11 +33,11 @@
   border-radius: 1rem;
   padding: 1rem;
   flex-direction: column;
-  margin-bottom: 2rem;
+  gap: 1rem;
 }
 
 .bill-data {
-  box-shadow: rgba(117, 116, 116, 0.35) 0px 5px 15px;
+  box-shadow: rgba(117, 116, 116, 0.169) 1px 3px 10px 2px;
 }
 
 table {
@@ -178,15 +179,14 @@ label {
   padding: 0.5rem 0.5rem;
   background-color: #77628c;
   border: 1px solid #77628c;
-  color: #f9f8eb;
+  color: white;
   font-weight: 500;
-  border-radius: 1rem;
+  border-radius: .4rem;
   cursor: pointer;
   width: 10rem;
 }
 .submit:hover {
-  background-color: #f9f8eb;
-  color: #77628c;
+  background-color: #655378;
 }
 .notifications {
   width: 100%;
@@ -247,11 +247,11 @@ label {
   justify-content: center;
   align-items: center;
   background-color: #a7d7c5;
-  border-radius: 3rem;
+  border-radius: .8rem;
   width: 60%;
   align-self: center;
   font-weight: 500;
-  box-shadow: 3px 3px 15px 4px rgba(92, 141, 137, 0.526);
+  box-shadow: 1px 3px 10px 2px rgba(92, 141, 137, 0.402);
 }
 
 .free-shipping p {
