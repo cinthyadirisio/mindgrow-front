@@ -23,6 +23,7 @@ function Header() {
         </LinkRouter>
       </div>
       <div className="header-links">
+      <LinkRouter to="/">Home</LinkRouter>
         <LinkRouter to="/products">Products</LinkRouter>
         <LinkRouter to="whymindgrow">Why MindGrow?</LinkRouter>
         {user ? <LinkRouter to="/adminpanel">Admin Panel</LinkRouter> : null}
