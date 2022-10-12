@@ -4,11 +4,11 @@ import { useSelector } from 'react-redux';
 import '../../styles/NewPublication.css'
 import toast, { Toaster } from 'react-hot-toast';
 
-function Input({ label, name }) {
+function Input({ label, name, min, max, placeholder }) {
     return (
         <label>
             {label}
-            <input name={name} />
+            <input name={name} minLength={min} placeholder={placeholder} maxLength={max} required />
         </label>
     );
 }
@@ -37,8 +37,7 @@ export default function NewPublication({ handleRefetch }) {
         };
         newPublication(publication).then(response => {
             if (response.data.success) {
-                toast("You have made a publication", {
-                    icon: "😏",
+                toast.success("You have made a publication", {
                     style: {
                         borderRadius: ".5rem",
                         background: "#3f3d56",
@@ -46,8 +45,8 @@ export default function NewPublication({ handleRefetch }) {
                     },
                 });
                 handleRefetch()
+                formPublication.current.reset();
             } else {
-                console.log(response.data.message)
                 toast.error(response.data?.message,
                     {
                         icon: "😵",
@@ -59,16 +58,12 @@ export default function NewPublication({ handleRefetch }) {
                     })
             }
         }).catch(error => console.log(error.message));
-        formPublication.current.reset();
+        
     }
 
     const [open, setOpen] = useState(false);
     const openPublication = () => {
-        if (open === true) {
-            setOpen(false);
-        } else {
-            setOpen(true);
-        }
+        setOpen(!open)
     };
     
     if (admin && token) {
@@ -76,13 +71,13 @@ export default function NewPublication({ handleRefetch }) {
             <div className="container-dad-publication">
                 <div className="container-header-new-publication">
                     <h3>New Publication</h3>
-                    <img className="icon-despleg" onClick={openPublication} src="https://cdn-icons-png.flaticon.com/512/3597/3597088.png" alt="" width="30px"></img>
+                    <img className="icon-despleg" onClick={openPublication} src={open? "https://i.ibb.co/7zVjHzv/cancel.png":"https://cdn-icons-png.flaticon.com/512/3597/3597088.png"} alt="" width="30px"></img>
                 </div>
                 {open ? (
                     <div className="container-form-publication">
-                        <form ref={formPublication} action="#" className="form-new-publication">
+                        <form ref={formPublication} action="#" className="form-new-publication" onSubmit={handleSubmit}>
                             <div className="container-input-publication">
-                                <Input label="Title" name="title" />
+                                <Input label="Title" name="title" min={4} max={40} placeholder='Type a title' />
                                 <div className="container-select-category">
                                     <label>Category</label>
                                     <select name="category" defaultValue="empty" className="select-category">
@@ -94,14 +89,14 @@ export default function NewPublication({ handleRefetch }) {
                                 </div>
                             </div>
                             <div className="container-input-publication">
-                                <Input label="Photo" name="photo" />
-                                <Input label="Url" name="url" />
+                                <Input label="Photo" name="photo" min={4} max={100} placeholder={'https://image.png'}/>
+                                <Input label="Url" name="url" min={4} max={100} placeholder={' https://www.direciton.com/'} />
                             </div>
                             <label>
                                 Description:
-                                <textarea className="text-tarea" name="description" />
+                                <textarea className="text-tarea" name="description" placeholder="Write a description here..." minLength='4' maxLength='3000' required />
                             </label>
-                            <button className="btn-new-publication" type="submit" onClick={handleSubmit}> Post </button>
+                            <button className="btn-new-publication" type="submit"> Post </button>
                         </form>
                         <Toaster />
                     </div>

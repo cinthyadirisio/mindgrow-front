@@ -76,7 +76,7 @@ export default function EditFormProduct({ data }) {
 
   ]
   const input = (item) => (
-    <label htmlFor={item.name} key={Math.random().toString(12).substring(0)}>
+    <label className='label-modal' htmlFor={item.name} key={Math.random().toString(12).substring(0)}>
       {item.nameForm}
       {
         item.name !== 'description' ? <input className='input-edit'

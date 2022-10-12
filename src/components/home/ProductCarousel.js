@@ -23,7 +23,7 @@ const ProductCarousel = () => (
         <h3 className='carousel-title'>Edibles</h3>
       </div>
       <div className='carousel-div'>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBq2MM9P81IBn0Lg8qL_AHGHVx3TFj-T_43w&usqp=CAU" alt="pets" />
+        <img src="https://i.ibb.co/mD1Ntyh/pets.png" alt="pets" />
         <h3 className='carousel-title'>Pets</h3>
       </div>
     </Carousel>

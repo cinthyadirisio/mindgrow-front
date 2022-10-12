@@ -58,7 +58,7 @@ export default function EditFormPublication({ data }) {
 
   ]
   const input = (item) => (
-    <label htmlFor={item.name} key={Math.random().toString(12).substring(0)}>
+    <label className='label-modal' htmlFor={item.name} key={Math.random().toString(12).substring(0)}>
       {item.nameForm}
       {
         item.name !== 'description' ? <input className='input-edit'
@@ -100,9 +100,8 @@ export default function EditFormPublication({ data }) {
     e.preventDefault()
     const form = Object.fromEntries(new FormData(formRef.current))
     const body = {
-      ...form, _id: data._id, user: data.user._id, date: data.date,
+      ...form, _id: data._id, date: new Date().getFullYear().toString(),
     }
-    console.log(body)
     try {
       let res = await editPublication(body)
       if (res.data?.success) {

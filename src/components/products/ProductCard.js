@@ -11,14 +11,13 @@ export default function ProductCard(props) {
   const dispatch = useDispatch();
   return (
     <div key={props.id} className="card-p">
-      
+
       <img src={props.photo} alt="Product" />
       <div className="info">
-        <p>{props.category}</p>
-        <p className="subcategory">{props.subcategory}</p>
         <LinkRouter to={`/products/${props.id}`} className="name">
           {props.name}
         </LinkRouter>
+        <p>{props.category}</p>
         <div className="price-button">
           <p>${props.price}</p>
           <button

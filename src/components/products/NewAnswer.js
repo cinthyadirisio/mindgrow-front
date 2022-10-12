@@ -34,7 +34,7 @@ export default function NewAnswer({ id }) {
     }
     return (
         <form className='form-answer' onSubmit={sendAnswer}>
-            <input type="text" minLength='3' maxLength='300' name="answer" placeholder='Write your answer...' ref={input} />
+            <input type="text" minLength='3' maxLength='300' name="answer" placeholder='Write your answer...' required ref={input} />
             <button type="submit">Answer</button>
         </form>
     )

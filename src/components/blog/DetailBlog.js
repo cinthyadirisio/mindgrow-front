@@ -49,7 +49,7 @@ export default function DetailBlog() {
           <p className='title-d'> {publication2?.title}</p>
           <p className='category-d'>{publication2?.category}</p>
           <p className='description-d'>{publication2?.description}</p>
-          <p className='url-d'>Want to read more? go here: <a>{publication2?.url}</a> </p>
+          <p className='url-d'>Want to read more? go here: <a href={publication2?.url}>{publication2?.url}</a> </p>
           <LinkRouter className='linkto' to='/whymindgrow'>Want to read another?</LinkRouter>
         </div>
       </div>
