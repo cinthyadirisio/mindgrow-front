@@ -58,7 +58,9 @@
     height: 5rem;
     cursor: pointer;
 }
-
+.round-img svg{
+    fill: #F9F8EB;
+}
 
 .round-img img{
     height: 40pt;
