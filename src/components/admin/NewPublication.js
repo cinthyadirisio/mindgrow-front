@@ -90,7 +90,7 @@ export default function NewPublication({ handleRefetch }) {
                             </div>
                             <div className="container-input-publication">
                                 <Input label="Photo" name="photo" min={4} max={100} placeholder={'https://image.png'}/>
-                                <Input label="Url" name="url" min={4} max={100} placeholder={' https://www.direciton.com/'} />
+                                <Input label="Url" name="url" min={4} max={100} placeholder={' https://www.url.com/'} />
                             </div>
                             <label>
                                 Description:

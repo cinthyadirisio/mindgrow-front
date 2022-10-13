@@ -65,7 +65,7 @@ export default function SignUpForm() {
     return (
         <div className='sign-up-page'>
             <div className='signUp-img'>
-                <img src="https://i.im.ge/2022/10/05/1kKVu1.SignInCanabbis.png" alt="signiage" />
+                <img src="https://i.im.ge/2022/10/13/2s2G51.hemp-oil-from-hemp-seeds-and-leaves-medical-marijuana.jpg" alt="signiage" />
             </div>
             <form ref={form} className='Form-signup' onSubmit={handleSubmit}>
                 <div className='signInInputContainer'>
