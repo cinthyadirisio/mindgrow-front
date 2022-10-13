@@ -59,7 +59,7 @@ export default function Cart() {
                                 src="https://www.qrcardboard.com/images/cart.gif?v=01"
                                 alt="empty"
                             />
-                            <button className="submit" onClick={() => navigate('/products', { replace: true })}>Shop</button>
+                            <button className="submitShop" onClick={() => navigate('/products', { replace: true })}>Shop</button>
                         </>
                     ) : (
                         <form>
