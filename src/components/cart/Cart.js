@@ -2,20 +2,32 @@ import React, { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { useNewPurchaseMutation } from "../../features/purchaseAPI";
+import toast, { Toaster } from 'react-hot-toast';
 
 import api_url from '../../api';
 import { deleteProduct, increment, decrement, setBill } from "../../features/cartSlice";
 import "../../styles/Cart.css";
 
 export default function Cart() {
+    const user = useSelector((state) => state.logged.user);
     const products = useSelector((state) => state.cart.productsCart);
     const dispatch = useDispatch();
     const navigate = useNavigate()
     let array = products.map((item) => item.price * item.quantity);
     let total = array.reduce((item, sum) => sum + item, 0);
+    const [newPurchase] = useNewPurchaseMutation();
     const formBill = useRef()
+    const nameProducts = products.map(product => {
+        return product.name
+    });
+    console.log(nameProducts)
     const billSave = (e) => {
         e.preventDefault()
+
+        // let formData = new FormData(formBill.current)
+        // dispatch(setBill(Object.fromEntries(formData)));
+
         // let formData = new FormData(formBill.current)
         // dispatch(setBill(Object.fromEntries(formData)));
         const payload = {
@@ -32,6 +44,41 @@ export default function Cart() {
             if (res.data.success) {
                 const mercadopagoLink = res.data.url;
                 window.open(mercadopagoLink);
+                const formData = new FormData(formBill.current);
+                const purchase = {
+                    name: formData.get('name'),
+                    lastname: formData.get('lastName'),
+                    user: user.id,
+                    productName: nameProducts,
+                    productPrice: total,
+                    country: formData.get('country'),
+                    state: formData.get('state'),
+                    shippingadress: formData.get('shipping'),
+                    mail: user.mail,
+                    phone: formData.get('phone'),
+                };
+                newPurchase(purchase).then(response => {
+                    if (response.data.success) {
+                        toast.success("The details of the purchase have been sent to your email", {
+                            style: {
+                                borderRadius: ".5rem",
+                                background: "#3f3d56",
+                                color: "aliceblue",
+                            },
+                        });
+                        formBill.current.reset();
+                    } else {
+                        toast.error(response.data?.message,
+                            {
+                                icon: "😵",
+                                style: {
+                                    borderRadius: ".5rem",
+                                    background: "#3f3d56",
+                                    color: "aliceblue",
+                                },
+                            })
+                    }
+                }).catch(error => console.log(error.message));
             } else {
                 console.error('Unexpected backend response', res.data);
             }
