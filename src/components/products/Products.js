@@ -10,9 +10,8 @@ export default function Products() {
     const [category, setCategory] = useState('')
     const [subcategory, setSubcategory] = useState('')
     const { data, isLoading } = useGetAllProductsQuery({ sort: sort, category: category, product: product, subcategory: subcategory })
-    const products = data?.response.products
     const subcategories = data?.response.subcategories
-
+    let products = data?.response.products
     return (
         <div className='container'>
             <div className='filters'>
@@ -63,6 +62,7 @@ export default function Products() {
                                     subcategory={item.subcategory}
                                     price={item.price}
                                     photo={item.photo}
+                                    stock={item.stock}
                                 />)
                         }
                         {
@@ -81,9 +81,6 @@ export default function Products() {
                             {
                                 subcategories.map((subcategory) => {
                                     const filteredProducts = products.filter(product => product.subcategory === subcategory)
-                                    // if (filteredProducts.length === 0) {
-                                    //     return null;
-                                    // }
                                     return filteredProducts.length > 0 ? (
                                         <div className="cards-container" key={subcategory}>
                                             <h3>{subcategory}</h3>

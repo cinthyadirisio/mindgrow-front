@@ -13,23 +13,26 @@
   justify-content: space-between;
   align-items: center;
   padding: 2rem 5rem;
+  border-bottom: 0.4rem solid #77628C;
 }
-
 .header-links {
   display: flex;
+  align-self: center;
   gap: 4rem;
+  padding-left: 2rem;
 }
 
 .header-links a {
   color: #f9f8eb;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 500;
 }
 .header-links a:hover {
-  color: #304a48;
+  color: #dce6d5;
 }
 
-.header-info {
+.header-info,
+.container-b {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,7 +41,7 @@
 
 /* Burger */
 .header-burger {
-    display: none;
+  display: none;
 }
 
 .burger-btn {
@@ -46,18 +49,15 @@
   background: none;
   border: none;
   cursor: pointer;
-  width: 3rem;
-  height: 3rem;
-  margin-right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
   margin: 0;
 }
 
 .burger-btn svg {
   fill: #f9f8eb;
-  width: 3rem;
-  height: 3rem;
-  border: 1px solid #f9f8eb;
-  padding: 0.41rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 15px;
   margin: 0;
   text-align: center;
@@ -72,7 +72,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .logo-title img {
@@ -81,7 +81,7 @@
 }
 
 .logo-title h2 {
-  font-size: 3rem;
+  font-size: 2.6rem;
   color: #f9f8eb;
   margin: 0;
   padding-bottom: 0.5rem;
@@ -107,25 +107,24 @@
   background: none;
   border: none;
   cursor: pointer;
-  height: 3rem;
-  width: 3rem;
+  height: 2.5rem;
+  width: 2.5rem;
   align-self: center;
 }
 
 .UI-box svg {
   fill: #f9f8eb;
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   background: #5c8d89;
-  border: 1px solid #f9f8eb;
   padding: 0.5rem;
-  border-radius: 15px;
+  border-radius: 50%;
 }
-.UI-box img{
-  width: 3rem;
-  height: 3rem;
+.UI-box img {
+  width: 2rem;
+  height: 2rem;
   object-fit: cover;
-  border-radius: 15px;
+  border-radius: 50%;
 }
 .container-sign {
   display: flex;
@@ -202,11 +201,12 @@
 
 /* Cart */
 .cart-button {
-  width: 3rem;
-  height: 3rem;
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
   background: none;
-  border-radius: 15px;
-  border: 1px solid #f9f8eb;
+  border-radius: 50%;
+  border: none;
   cursor: pointer;
 }
 
@@ -215,69 +215,81 @@
   padding: 0.4rem;
 }
 
-.cart-button:hover {
-  border: 1px solid hsl(157, 30%, 58%);
-  background: #f9f8eb;
-}
-
 .cart-button svg:hover {
-  fill: hsl(157, 30%, 58%);
+  fill: hsl(160, 13%, 86%);
+}
+.count {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 0.8rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  top: 1.5rem;
+  background-color: #77628c;
+  color: #ecebdd;
+  padding: 0.2rem;
+  border-radius: 50%;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1180px) {
   .header-links {
     gap: 1rem;
   }
-  .header-container {
-    padding: 2rem 3rem;
+  .header-links {
+    display: none;
+  }
+  .cart-button {
+    align-self: end;
   }
 }
 
-@media screen and (max-width: 864px) {
-  .logo-title h2 {
-    display: none;
-  }
-
-  .logo-title img {
-    height: 4rem;
-  }
+@media screen and (max-width: 1024px) {
   .burger-btn {
     display: inline;
   }
-  .header-links {
+  .logo-title h2 {
     display: none;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .logo-title img {
+    height: 4rem;
   }
   .header-burger {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100vh;
-    background-color: #f9f8eb;
+    background-color: #f9f8ebe9;
     position: absolute;
     top: 0;
     right: 0;
     border-radius: 0.4rem;
     gap: 1rem;
     padding: 4rem 1rem;
-    z-index: 1;
+    z-index: 3;
   }
 
-  .header-burger a{
+  .header-burger a {
     text-decoration: none;
     color: #5c8d89;
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: 500;
   }
 
   .close {
     position: absolute;
-    top: .3rem;
+    top: 0.3rem;
     right: 1.3rem;
     border: none;
     background-color: transparent;
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   .burger-sign {
@@ -301,7 +313,7 @@
     padding: 0.5rem;
     border-radius: 15px;
   }
-  
+
   .burger-sign span {
     font-size: 2rem;
     font-weight: 500;
@@ -313,7 +325,13 @@
   .header-container {
     flex-direction: row;
     align-items: center;
+    padding: 1rem;
+  }
+  .logo-title img {
+    display: none;
+  }
+  .header-info {
+    width: 100%;
     justify-content: space-between;
-    padding: 2rem;
   }
 }

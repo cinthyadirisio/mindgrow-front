@@ -1,6 +1,4 @@
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setUser } from "../../features/loggedSlice";
 import { useSignUpMutation } from "../../features/userAPI";
 import { useRef } from "react";
 import toast, { Toaster } from 'react-hot-toast';
@@ -19,7 +17,6 @@ function Input({ label, name, type }) {
 }
 
 export default function SignUpForm() {
-    const dispatch = useDispatch();
     const navigate = useNavigate();
     const form = useRef();
     const [newUser] = useSignUpMutation();
@@ -38,8 +35,7 @@ export default function SignUpForm() {
             role: "user"
         };
         newUser(formUser).then(response => {
-            if (response.data.success) {
-                dispatch(setUser(response.data.response.user))
+            if (response.data?.success) {
                 toast("It has been successfully registered", {
                     icon: "😏",
                     style: {
@@ -69,12 +65,12 @@ export default function SignUpForm() {
     return (
         <div className='sign-up-page'>
             <div className='signUp-img'>
-                <img src="https://i.im.ge/2022/10/05/1kKVu1.SignInCanabbis.png" alt="signiage" />
+                <img src="https://i.im.ge/2022/10/13/2s2G51.hemp-oil-from-hemp-seeds-and-leaves-medical-marijuana.jpg" alt="signiage" />
             </div>
             <form ref={form} className='Form-signup' onSubmit={handleSubmit}>
                 <div className='signInInputContainer'>
                     <Input label="Name" name="name" />
-                    <Input label="Lastname" name="lastname" />
+                    <Input label="Last Name" name="lastname" />
                     <Input label="Mail" name="mail" />
                     <Input label="Country" name="country" />
                     <Input label="Photo URL" name="photo" />
@@ -82,7 +78,7 @@ export default function SignUpForm() {
                 </div>
                 <div className='Form-user-signup'>
                     <button type="submit" >
-                        Submit
+                        Sign Up!
                     </button>
                     <SignUpGoogle />
                 </div>

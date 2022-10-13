@@ -18,9 +18,9 @@
     justify-content: center;
     align-items: center;
     background-color: #A7D7C5;
-    height: 35rem;
+    height: 40rem;
     width: 30rem;
-    border-radius: 0rem 3rem 3rem 0rem;
+    border-radius: 0rem 1rem 1rem 0rem;
 }
 .signInInputContainer{
     width: 90%;
@@ -33,12 +33,13 @@
     align-items: center;
     margin-bottom: 1rem;
     font-size: 10pt;
-
+    gap: 1rem;
 }
 
 .signIn-input label {
    align-self: flex-start;
    padding-left: 1rem;
+   font-size: 1rem;
 }
 
 .signIn-input input{
@@ -50,9 +51,9 @@
 }
 
 .signIn-img img{
-    height: 35rem;
+    height: 40rem;
     width: 30rem;
-    border-radius: 3rem 0rem 0rem 3rem;
+    border-radius: 1rem 0rem 0rem 1rem;
     object-fit: cover;
 }
 
@@ -69,7 +70,7 @@
     cursor: pointer;
     background-color: #77628C;
     padding: .5rem 2rem .5rem 2rem;
-    border-radius: 3rem;
+    border-radius: .4rem;
     border: none;
     font-size: 11pt;
     margin-bottom: 1.4rem;
@@ -87,7 +88,7 @@
 @media screen and (max-width:1230px){
     .Form {
 
-        height: 35rem;
+        height: 40rem;
     width: 90%;
 
     } 
@@ -105,7 +106,7 @@
     }
 
     .Form {
-        border-radius: 3rem;
+        border-radius: 1rem;
     }
     .Form-user{
         display: flex;
@@ -126,7 +127,6 @@
 
 @media screen and (max-width:452px){
     .signIn-input input{
-        padding: 1rem;
         width: 90%;
     }
    

@@ -2,14 +2,30 @@ import React from 'react'
 import { Link as LinkRouter } from 'react-router-dom'
 import '../styles/Footer.css'
 import { Toaster } from 'react-hot-toast';
+import { useState, useEffect } from 'react'
 export default function Footer() {
+
+    const [scrollToTop, setScrollToTop] = useState(false)
+
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            if(window.scrollY > 100){
+                setScrollToTop(true)
+            } else {
+                setScrollToTop(false)
+            }
+        })
+    },[])
+
     const scroll = () => {
         window.scrollTo({
           top: 0,
           behavior: 'smooth'
         });
     }
+
     const today = new Date()
+
   return (
     <div className='Footer-container'>
         <div className='Footer-container-template'>
@@ -39,8 +55,13 @@ export default function Footer() {
             <a href='https://github.com/tomasrjs'>Tomas Rojas</a>
         </div>
         <p>©{today.getFullYear()} MindGrow</p>
-        <button className='scroll' onClick={scroll}></button>
+        {scrollToTop && (
+            <div>
+                <img className='scroll' src="https://cdn-icons-png.flaticon.com/512/7216/7216119.png" alt="scrolltopage" height="50px" onClick={scroll}></img>
+            </div>
+        )}
         <Toaster />
+
     </div>
     
   )

@@ -1,13 +1,10 @@
 import { useEffect, useRef } from "react";
 import * as jose from "jose";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setUser } from "../../features/loggedSlice";
 import { useSignUpMutation } from "../../features/userAPI";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 export default function SignUpGoogle() {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const buttonDiv = useRef(null);
   let [newUser] = useSignUpMutation();
@@ -20,13 +17,12 @@ export default function SignUpGoogle() {
       photo: userObject.picture,
       mail: userObject.email,
       password: userObject.sub,
-      country: "Argentina",
+      country: "Country",
       role: "user",
       from: "google",
     };
     newUser(data).then(response => {
       if (response.data?.success) {
-        dispatch(setUser(response.data.response.user))
         toast("It has been successfully registered", {
           icon: "😏",
           style: {
