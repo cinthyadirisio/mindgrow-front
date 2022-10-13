@@ -180,9 +180,24 @@ label {
   cursor: pointer;
   width: 10rem;
 }
-.submit:hover {
+.submitShop{
+  font-size: 12pt;
+  align-self: center;
+  margin-top: 1rem;
+  margin-bottom: 0.8rem;
+  padding: 0.5rem 0.5rem;
+  background-color: #77628c;
+  border: 1px solid #77628c;
+  color: white;
+  font-weight: 500;
+  border-radius: .4rem;
+  cursor: pointer;
+  width: 10rem;
+}
+.submit:hover, .submitShop:hover {
   background-color: #655378;
 }
+
 .notifications {
   width: 100%;
   display: flex;
