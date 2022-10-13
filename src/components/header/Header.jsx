@@ -26,7 +26,7 @@ function Header() {
       <LinkRouter to="/">Home</LinkRouter>
         <LinkRouter to="/products">Products</LinkRouter>
         <LinkRouter to="whymindgrow">Why MindGrow?</LinkRouter>
-        {user ? <LinkRouter to="/adminpanel">Admin Panel</LinkRouter> : null}
+        {(user && user.role === "admin") ? <LinkRouter to="/adminpanel">Admin Panel</LinkRouter> : null}
       </div>
       <div className="header-info">
         {burger && (
@@ -43,7 +43,7 @@ function Header() {
             <LinkRouter onClick={() => setBurger(!burger)} to="whymindgrow">
               Why MindGrow?
             </LinkRouter>
-            {user ? (
+            {(user && user.role === "admin") ? (
               <LinkRouter onClick={() => setBurger(!burger)} to="/adminpanel">
                 Admin Panel
               </LinkRouter>
